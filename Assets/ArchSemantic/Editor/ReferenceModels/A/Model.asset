@@ -1,0 +1,3068 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204309b33d4c5356855657689a04cf9d, type: 3}
+  m_Name: Model
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::ArchSemanticPilot.ModelDefinition
+  scenario: A
+  sourceGhSha256: 7f60fba3f7c5d7c112061a89b87ab4450111e7ca36369729cbeefb90891726e6
+  modelSha256: 124947049978591805341f4602e51b5351023c57db78d2811f12a69653dc0af5
+  prefab: {fileID: 1136772755251784959, guid: a1e031c2dd4878c42a064c963c11dcae, type: 3}
+  starts:
+  - {x: 5, y: 1.71, z: -7.4732}
+  - {x: -4.4, y: 1.71, z: 4.2}
+  - {x: 14.4, y: 1.71, z: 4}
+  viewDirections:
+  - {x: 0, y: 0, z: -3}
+  - {x: -3, y: 0, z: 0}
+  - {x: 3, y: 0, z: 0}
+  anchors:
+  - id: A__ANCHOR__F_1TO1
+    position: {x: 5, y: 1.71, z: -7.4732}
+  - id: A__ANCHOR__R_1TO1
+    position: {x: -4.4, y: 1.71, z: 4.2}
+  - id: A__ANCHOR__G_1TO1
+    position: {x: 14.4, y: 1.71, z: 4}
+  - id: A__ANCHOR__U_R1_1TO1
+    position: {x: -1.98, y: 4.95, z: 0.9}
+  - id: A__ANCHOR__U_R2_1TO1
+    position: {x: -1.98, y: 7.65, z: 6.08}
+  - id: A__ANCHOR__U_G_1TO1
+    position: {x: 11.98, y: 7.65, z: 11.98}
+  - id: A__ANCHOR__P1_THRESHOLD_REVELATION
+    position: {x: 5, y: 1.71, z: -8.79}
+  - id: A__ANCHOR__P2_OCCUPIED_REFUGE
+    position: {x: -4.4, y: 1.71, z: 4.2}
+  - id: A__ANCHOR__P3_ROUTE_INTEGRATION
+    position: {x: 10.5, y: 1.71, z: 5}
+  objectCount: 755
+  triangleCount: 10176
+  objects:
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_3__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_6__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_6
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_2__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_2
+  - semanticId: A__FLR__R__GROUND_FINISH__03
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FLR__U_G__RECESSED_THIRD_FLOOR_BUILDUP__04
+    owner: U_G
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_15__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_15
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_2__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_6__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_6
+  - semanticId: A__FLR__U_R2__RECESSED_THIRD_FLOOR_BUILDUP__01
+    owner: U_R2
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FLR__G__GROUND_FINISH__16
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_4__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_4
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_6_PANEL_1__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_6_PANEL_1
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_17__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_17
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_6__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_6
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_B_HEAD__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_B_HEAD
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__07
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__LGT__U_R2__PERIMETER_RING_SEGMENT_3__01
+    owner: U_R2
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_3
+  - semanticId: A__FIX__R__LOW_TABLE_TOP__01
+    owner: R
+    category: FIX
+    role: LOW_TABLE_TOP
+  - semanticId: A__FIX__U_R2__NEUTRAL_PLINTH_1__01
+    owner: U_R2
+    category: FIX
+    role: NEUTRAL_PLINTH_1
+  - semanticId: A__GLS__F__EXTERIOR_HIGH_WINDOW__02
+    owner: F
+    category: GLS
+    role: EXTERIOR_HIGH_WINDOW
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__02
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__12
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_7__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_7
+  - semanticId: A__FLR__R__GROUND_FINISH__14
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__02
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__FRM__R__EXTERIOR_VIEW_WINDOW_HEAD__01
+    owner: R
+    category: FRM
+    role: EXTERIOR_VIEW_WINDOW_HEAD
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__16
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_6__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_6
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_22__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_22
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_1__03
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__R_C__OPEN_LINK_SIDE_WALL_1__02
+    owner: R_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_1__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_5__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_5
+  - semanticId: A__FIX__R__LOW_TABLE_LEG_B__01
+    owner: R
+    category: FIX
+    role: LOW_TABLE_LEG_B
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_10__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_10
+  - semanticId: A__FLR__C__COURTYARD_FINISH__27
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__16
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__15
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__08
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__R__SOUTH_EXTERIOR_PANEL_1__01
+    owner: R
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_1
+  - semanticId: A__FLR__R__GROUND_FINISH__15
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_14__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_14
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_4__02
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_4
+  - semanticId: A__WAL__R_G__OPEN_LINK_SIDE_WALL_2__02
+    owner: R_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__FLR__U_R2__RECESSED_THIRD_FLOOR_BUILDUP__05
+    owner: U_R2
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FLR__R__GROUND_FINISH__07
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__GLS__G_C__CLERESTORY__02
+    owner: G_C
+    category: GLS
+    role: CLERESTORY
+  - semanticId: A__FLR__R_G__OPEN_LINK_FLOOR_PATCH__01
+    owner: R_G
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_3__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_3
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_5__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_5
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_6__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_6
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__03
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_14__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_14
+  - semanticId: A__FIX__U_G__BLANK_DISPLAY_PANEL_1__01
+    owner: U_G
+    category: FIX
+    role: BLANK_DISPLAY_PANEL_1
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_7__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_7
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_7_PANEL_1__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_7_PANEL_1
+  - semanticId: A__WAL__F_R__OPEN_LINK_SIDE_WALL_2__02
+    owner: F_R
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_13__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_1__02
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_1
+  - semanticId: A__FLR__C__COURTYARD_FINISH__07
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__SLB__U_R2__THIRD_FLOOR_VISIBLE_STRUCTURE__01
+    owner: U_R2
+    category: SLB
+    role: THIRD_FLOOR_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_8__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_8
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__08
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_9__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_9
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_1__01
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_1
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_1__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_1
+  - semanticId: A__SLB__R__ROOF_AND_U_R1_VISIBLE_STRUCTURE__01
+    owner: R
+    category: SLB
+    role: ROOF_AND_U_R1_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_13__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_13
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_7__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_7
+  - semanticId: A__LGT__F__PERIMETER_RING_SEGMENT_1__01
+    owner: F
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_1
+  - semanticId: A__FLR__R__GROUND_FINISH__21
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_2__02
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_2
+  - semanticId: A__FRM__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL_HEAD__01
+    owner: F_R
+    category: FRM
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL_HEAD
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_3__04
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_3
+  - semanticId: A__FLR__F__GROUND_FINISH__16
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__03
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_19__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_19
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_3__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_3
+  - semanticId: A__FRM__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_1__01
+    owner: F_R
+    category: FRM
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_1
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_19__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_19
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_6__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_6
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_1__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_1
+  - semanticId: A__FLR__G__GROUND_FINISH__05
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_R__OPEN_LINK_SIDE_WALL_1__02
+    owner: F_R
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_4__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_2__02
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_2
+  - semanticId: A__WAL__R_C__OPEN_LINK_SIDE_WALL_1__01
+    owner: R_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_4__01
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_4
+  - semanticId: A__GLS__F__SKYLIGHT_VISIBLE_GLAZING__01
+    owner: F
+    category: GLS
+    role: SKYLIGHT_VISIBLE_GLAZING
+  - semanticId: A__FLR__C__COURTYARD_FINISH__02
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__G__GROUND_FINISH__06
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_B_JAMB_LEFT__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_B_JAMB_LEFT
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_12__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_12
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_9__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_9
+  - semanticId: A__FRM__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL_HEAD__01
+    owner: F_G
+    category: FRM
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL_HEAD
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_8__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_8
+  - semanticId: A__LGT__G__PERIMETER_RING_SEGMENT_2__01
+    owner: G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_2
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_5__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_5
+  - semanticId: A__FLR__F__GROUND_FINISH__05
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_3__01
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_3
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_18__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_18
+  - semanticId: A__WAL__G__P3_DISPLAY_ALIGNMENT_WALL__01
+    owner: G
+    category: WAL
+    role: P3_DISPLAY_ALIGNMENT_WALL
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_11__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_11
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_16__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_16
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_5__01
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_5
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_10__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_10
+  - semanticId: A__WAL__F_G__OPEN_LINK_SIDE_WALL_1__01
+    owner: F_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_1__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_1
+  - semanticId: A__FRM__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL_SILL__01
+    owner: F_G
+    category: FRM
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL_SILL
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_4__03
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_4
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_8__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_8
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_A_SILL__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_A_SILL
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_5__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_5
+  - semanticId: A__FLR__C__COURTYARD_FINISH__22
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__GLS__U_R1__UPPER_WINDOW_3_B__01
+    owner: U_R1
+    category: GLS
+    role: UPPER_WINDOW_3_B
+  - semanticId: A__FRM__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL_JAMB_RIGHT__01
+    owner: F_R
+    category: FRM
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL_JAMB_RIGHT
+  - semanticId: A__LGT__U_R2__PERIMETER_RING_SEGMENT_1__01
+    owner: U_R2
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_1
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_6__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_6
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_9__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_9
+  - semanticId: A__FRM__R__EXTERIOR_VIEW_WINDOW_JAMB_RIGHT__01
+    owner: R
+    category: FRM
+    role: EXTERIOR_VIEW_WINDOW_JAMB_RIGHT
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_8__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_8
+  - semanticId: A__WAL__R__NORTH_EXTERIOR_PANEL_1__01
+    owner: R
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_1
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__02
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_21__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_21
+  - semanticId: A__FLR__C__COURTYARD_FINISH__19
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_1__01
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_1
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_A_SILL__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_A_SILL
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_15__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_15
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_7__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_7
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_16__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__FLR__F__GROUND_FINISH__10
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__09
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__F__GROUND_FINISH__14
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__03
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_15__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__FLR__G__GROUND_FINISH__11
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_3__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__LGT__U_R2__PERIMETER_RING_SEGMENT_5__01
+    owner: U_R2
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_5
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_6__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_6
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_2__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__LGT__R__PERIMETER_RING_SEGMENT_3__01
+    owner: R
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_3
+  - semanticId: A__WAL__F_G__OPEN_LINK_SIDE_WALL_2__01
+    owner: F_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_10__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_10
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_5__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_5
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_5__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_5
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_8__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_8
+  - semanticId: A__FRM__R_G__U_R1_G_PERCEPTUAL_APERTURE_SILL__01
+    owner: R_G
+    category: FRM
+    role: U_R1_G_PERCEPTUAL_APERTURE_SILL
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_A_HEAD__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_A_HEAD
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__08
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__FLR__F__GROUND_FINISH__03
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FLR__R__GROUND_FINISH__01
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_2__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_2__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_12__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_12
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_7__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_7
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_4__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_4__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_4
+  - semanticId: A__FLR__F__GROUND_FINISH__07
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__DOR__F__ENTRY_PORTAL_LEFT_LEAF__01
+    owner: F
+    category: DOR
+    role: ENTRY_PORTAL_LEFT_LEAF
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_7__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_7
+  - semanticId: A__GLS__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL__01
+    owner: F_R
+    category: GLS
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_2__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__FLR__C__COURTYARD_FINISH__16
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_16__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_8__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_8
+  - semanticId: A__FLR__C__COURTYARD_FINISH__28
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_SILL__02
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_SILL
+  - semanticId: A__FLR__C__COURTYARD_FINISH__24
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_1__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_1
+  - semanticId: A__GLS__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL__02
+    owner: F_R
+    category: GLS
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__FLR__F__GROUND_FINISH__17
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_8__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_8
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_3__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_3
+  - semanticId: A__WAL__U_R2_U_G__OPEN_LINK_SIDE_WALL_2__02
+    owner: U_R2_U_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__GLS__G__SKYLIGHT_VISIBLE_GLAZING__02
+    owner: G
+    category: GLS
+    role: SKYLIGHT_VISIBLE_GLAZING
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_11__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_11
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_6__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_6
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_5__02
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_5
+  - semanticId: A__FIX__U_R1__BLANK_DISPLAY_PANEL_2__01
+    owner: U_R1
+    category: FIX
+    role: BLANK_DISPLAY_PANEL_2
+  - semanticId: A__FRM__R_G__U_R1_G_PERCEPTUAL_APERTURE_JAMB_RIGHT__01
+    owner: R_G
+    category: FRM
+    role: U_R1_G_PERCEPTUAL_APERTURE_JAMB_RIGHT
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_1__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_7__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_7
+  - semanticId: A__FRM__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL_JAMB_RIGHT__01
+    owner: F_G
+    category: FRM
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL_JAMB_RIGHT
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__10
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FRM__F__GLAZED_PANEL_RIGHT_JAMB_RIGHT__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_RIGHT_JAMB_RIGHT
+  - semanticId: A__FLR__G_C__OPEN_LINK_FLOOR_PATCH__01
+    owner: G_C
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__FRM__F_C__CLERESTORY_RIGHT_SILL__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_RIGHT_SILL
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_7__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_7
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_A_SILL__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_A_SILL
+  - semanticId: A__FLR__U_G__RECESSED_THIRD_FLOOR_BUILDUP__02
+    owner: U_G
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FLR__R__GROUND_FINISH__05
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_1__02
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_1
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_B_JAMB_RIGHT__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_B_JAMB_RIGHT
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_3__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_3
+  - semanticId: A__WAL__F_C__OPEN_LINK_SIDE_WALL_1__02
+    owner: F_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_13__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_13
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_4__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_4
+  - semanticId: A__FLR__G__GROUND_FINISH__04
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_14__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_5__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_5
+  - semanticId: A__FLR__G__GROUND_FINISH__10
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_2__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_SILL__02
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_SILL
+  - semanticId: A__FLR__U_R1__RECESSED_SECOND_FLOOR_BUILDUP__01
+    owner: U_R1
+    category: FLR
+    role: RECESSED_SECOND_FLOOR_BUILDUP
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_12__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_12
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_5__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_5
+  - semanticId: A__WAL__U_R2_U_G__OPEN_LINK_SIDE_WALL_1__01
+    owner: U_R2_U_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_6__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_6
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_8__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_8
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_3__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_3
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_B_SILL__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_B_SILL
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_B_HEAD__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_B_HEAD
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_6__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_6
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_SILL__01
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_SILL
+  - semanticId: A__LGT__R__PERIMETER_RING_SEGMENT_1__01
+    owner: R
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_1
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_6__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_6
+  - semanticId: A__FLR__C__COURTYARD_FINISH__01
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__36
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_23__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_23
+  - semanticId: A__FRM__R_C__OBSERVATION_WINDOW_HEAD__01
+    owner: R_C
+    category: FRM
+    role: OBSERVATION_WINDOW_HEAD
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_B_HEAD__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_B_HEAD
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_7__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_7
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_1_PANEL_1__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_1_PANEL_1
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__06
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__CLG__U_G__THIRD_FLOOR_CEILING_FINISH__01
+    owner: U_G
+    category: CLG
+    role: THIRD_FLOOR_CEILING_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_17__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_17
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__03
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__01
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__LGT__G__PERIMETER_RING_SEGMENT_3__01
+    owner: G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_3
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_12__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_12
+  - semanticId: A__WAL__R_G__OPEN_LINK_SIDE_WALL_1__02
+    owner: R_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_4__02
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_4
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_1_PANEL_1__03
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_1_PANEL_1
+  - semanticId: A__FLR__C__COURTYARD_FINISH__14
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__R_C__OPEN_LINK_FLOOR_PATCH__01
+    owner: R_C
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_15__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__FRM__F__ENTRY_PORTAL_CENTER_MULLION__01
+    owner: F
+    category: FRM
+    role: ENTRY_PORTAL_CENTER_MULLION
+  - semanticId: A__FIX__R__TIMBER_BENCH_2_LEG_B__01
+    owner: R
+    category: FIX
+    role: TIMBER_BENCH_2_LEG_B
+  - semanticId: A__FLR__C__COURTYARD_FINISH__34
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__F_C__CLERESTORY_LEFT_HEAD__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_LEFT_HEAD
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__09
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__01
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__14
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__14
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__LGT__U_R1__PERIMETER_RING_SEGMENT_4__01
+    owner: U_R1
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_4
+  - semanticId: A__FLR__R__GROUND_FINISH__17
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__U_R2_U_G__OPEN_LINK_SIDE_WALL_1__02
+    owner: U_R2_U_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__GLS__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL__03
+    owner: F_R
+    category: GLS
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_17__02
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_17
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_4__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_4
+  - semanticId: A__GLS__F__EXTERIOR_HIGH_WINDOW__01
+    owner: F
+    category: GLS
+    role: EXTERIOR_HIGH_WINDOW
+  - semanticId: A__FLR__R__GROUND_FINISH__12
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_1__02
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_7__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_7
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_3__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_3
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__10
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_B_JAMB_RIGHT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_B_JAMB_RIGHT
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_16__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_B_JAMB_LEFT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_B_JAMB_LEFT
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_23__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_23
+  - semanticId: A__LGT__G__PERIMETER_RING_SEGMENT_6__01
+    owner: G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_6
+  - semanticId: A__FLR__G__GROUND_FINISH__09
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__07
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_20__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_20
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_1__01
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__FLR__C__COURTYARD_FINISH__40
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__G_C__CLERESTORY_SILL__02
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_SILL
+  - semanticId: A__GLS__U_R2__UPPER_WINDOW_3_A__01
+    owner: U_R2
+    category: GLS
+    role: UPPER_WINDOW_3_A
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_17__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_17
+  - semanticId: A__GLS__F_C__CLERESTORY_RIGHT__01
+    owner: F_C
+    category: GLS
+    role: CLERESTORY_RIGHT
+  - semanticId: A__LGT__U_R1__PERIMETER_RING_SEGMENT_3__01
+    owner: U_R1
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_3
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_2__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_1__04
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_3__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_2__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_2
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__07
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__F_C__OPEN_LINK_SIDE_WALL_2__01
+    owner: F_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__06
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_9__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_9
+  - semanticId: A__FLR__C__COURTYARD_FINISH__35
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_HEAD__02
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_HEAD
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_1__02
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_1
+  - semanticId: A__WAL__F_C__OPEN_LINK_SIDE_WALL_1__01
+    owner: F_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__LGT__R__PERIMETER_RING_SEGMENT_4__01
+    owner: R
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_4
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_2__02
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_7__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_7
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_15__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_15
+  - semanticId: A__FLR__F__GROUND_FINISH__08
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_10__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_10
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__15
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_14__02
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_13__02
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__FRM__F__GLAZED_PANEL_LEFT_SILL__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_LEFT_SILL
+  - semanticId: A__FLR__R__GROUND_FINISH__06
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_4__02
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_4
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_13__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_13
+  - semanticId: A__FRM__R_C__OBSERVATION_WINDOW_SILL__01
+    owner: R_C
+    category: FRM
+    role: OBSERVATION_WINDOW_SILL
+  - semanticId: A__FRM__R__EXTERIOR_VIEW_WINDOW_SILL__01
+    owner: R
+    category: FRM
+    role: EXTERIOR_VIEW_WINDOW_SILL
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_4__01
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_4
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_15__02
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_15
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_11__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_11
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__06
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__SLB__C__COURTYARD_BASE__01
+    owner: C
+    category: SLB
+    role: COURTYARD_BASE
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_5__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_5
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_JAMB_LEFT__02
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_JAMB_LEFT
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__05
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__F_G__OPEN_LINK_SIDE_WALL_2__02
+    owner: F_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_10__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_10
+  - semanticId: A__FLR__U_G__RECESSED_THIRD_FLOOR_BUILDUP__03
+    owner: U_G
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FRM__R__EXTERIOR_VIEW_WINDOW_JAMB_LEFT__01
+    owner: R
+    category: FRM
+    role: EXTERIOR_VIEW_WINDOW_JAMB_LEFT
+  - semanticId: A__GLS__U_G__UPPER_WINDOW_2_A__01
+    owner: U_G
+    category: GLS
+    role: UPPER_WINDOW_2_A
+  - semanticId: A__FIX__R__TIMBER_BENCH_2_LEG_A__01
+    owner: R
+    category: FIX
+    role: TIMBER_BENCH_2_LEG_A
+  - semanticId: A__FRM__R_C__OBSERVATION_WINDOW_JAMB_LEFT__01
+    owner: R_C
+    category: FRM
+    role: OBSERVATION_WINDOW_JAMB_LEFT
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_4__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_4
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__01
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_10__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_10
+  - semanticId: A__FLR__F__GROUND_FINISH__11
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_C__OPEN_LINK_SIDE_WALL_2__02
+    owner: F_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_2__04
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__FRM__F__SKYLIGHT_RAISED_CURB__04
+    owner: F
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__01
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_2__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_2
+  - semanticId: A__FLR__C__COURTYARD_FINISH__08
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_4__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_4
+  - semanticId: A__FLR__C__COURTYARD_FINISH__39
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__R__GROUND_FINISH__19
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__F_C__CLERESTORY_RIGHT_HEAD__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_RIGHT_HEAD
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_A_HEAD__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_A_HEAD
+  - semanticId: A__GLS__U_R2__UPPER_WINDOW_3_B__01
+    owner: U_R2
+    category: GLS
+    role: UPPER_WINDOW_3_B
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_12__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_12
+  - semanticId: A__LGT__U_R1__PERIMETER_RING_SEGMENT_5__01
+    owner: U_R1
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_5
+  - semanticId: A__GLS__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL__01
+    owner: F_G
+    category: GLS
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_9__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_9
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__05
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__FLR__C__COURTYARD_FINISH__06
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_A_JAMB_LEFT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_A_JAMB_LEFT
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__11
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__F_R__OPEN_LINK_SIDE_WALL_1__01
+    owner: F_R
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_1__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_1
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_12__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_12
+  - semanticId: A__FLR__C__COURTYARD_FINISH__10
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__04
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_12__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_12
+  - semanticId: A__WAL__R_G__OPEN_LINK_SIDE_WALL_2__01
+    owner: R_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__FRM__F__ENTRY_PORTAL_HEAD__01
+    owner: F
+    category: FRM
+    role: ENTRY_PORTAL_HEAD
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_B_SILL__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_B_SILL
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__05
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__GLS__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL__01
+    owner: F_R
+    category: GLS
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__FLR__G__GROUND_FINISH__12
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FLR__F__GROUND_FINISH__02
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_3__02
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_3
+  - semanticId: A__FLR__U_G__RECESSED_THIRD_FLOOR_BUILDUP__05
+    owner: U_G
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_B_JAMB_LEFT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_B_JAMB_LEFT
+  - semanticId: A__FIX__U_G__NEUTRAL_PLINTH_2__01
+    owner: U_G
+    category: FIX
+    role: NEUTRAL_PLINTH_2
+  - semanticId: A__FLR__G__GROUND_FINISH__01
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__30
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__GLS__G__EXTERIOR_CLERESTORY__02
+    owner: G
+    category: GLS
+    role: EXTERIOR_CLERESTORY
+  - semanticId: A__SLB__R__OWNED_FOUNDATION__01
+    owner: R
+    category: SLB
+    role: OWNED_FOUNDATION
+  - semanticId: A__FLR__C__COURTYARD_FINISH__25
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_12__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_12
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_11__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_11
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_14__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_14
+  - semanticId: A__FLR__C__COURTYARD_FINISH__13
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_5_PANEL_1__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_5_PANEL_1
+  - semanticId: A__FLR__R__GROUND_FINISH__10
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__GLS__F__GLAZED_PANEL_LEFT__01
+    owner: F
+    category: GLS
+    role: GLAZED_PANEL_LEFT
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_2__02
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_3__01
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_3
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_2__01
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_13__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__FRM__F__GLAZED_PANEL_RIGHT_JAMB_LEFT__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_RIGHT_JAMB_LEFT
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_6__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_6
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_8__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_8
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_3__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_3
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_5__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_5
+  - semanticId: A__LGT__G__PERIMETER_RING_SEGMENT_1__01
+    owner: G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_1
+  - semanticId: A__FLR__F__GROUND_FINISH__09
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_5_PANEL_1__02
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_5_PANEL_1
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__12
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__GLS__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL__02
+    owner: F_R
+    category: GLS
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_2__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_1__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_1
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_10__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_10
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_3__02
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_3
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_16__02
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_7__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_7
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_5__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_5
+  - semanticId: A__FLR__C__COURTYARD_FINISH__18
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__R__GROUND_FINISH__16
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_15__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_2__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_2
+  - semanticId: A__FIX__G__NEUTRAL_PLINTH_1__01
+    owner: G
+    category: FIX
+    role: NEUTRAL_PLINTH_1
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_2__02
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_2
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_B_HEAD__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_B_HEAD
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_13__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_13
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_4__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_3__02
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_3
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_2__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_2
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_B_SILL__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_B_SILL
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__05
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_16__02
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_16
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_7__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_7
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_10__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_10
+  - semanticId: A__FLR__G__GROUND_FINISH__15
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__05
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_11__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_11
+  - semanticId: A__FLR__C__COURTYARD_FINISH__26
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_3__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_8__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_8
+  - semanticId: A__FRM__G_C__CLERESTORY_JAMB_RIGHT__02
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_JAMB_RIGHT
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_5__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_5
+  - semanticId: A__FLR__F_R__OPEN_LINK_FLOOR_PATCH__01
+    owner: F_R
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_4__04
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_4
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_5__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_5
+  - semanticId: A__FRM__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL_SILL__01
+    owner: F_R
+    category: FRM
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL_SILL
+  - semanticId: A__FRM__G_C__CLERESTORY_SILL__01
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_SILL
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_4__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_4
+  - semanticId: A__FRM__F_C__CLERESTORY_RIGHT_JAMB_RIGHT__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_RIGHT_JAMB_RIGHT
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_7__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_7
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_2__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_2
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__07
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_4__02
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_12__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_12
+  - semanticId: A__WAL__G__WEST_EXTERIOR_PANEL_1__02
+    owner: G
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_1
+  - semanticId: A__FRM__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_2__01
+    owner: F_G
+    category: FRM
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_2
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_11__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_11
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_9__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_9
+  - semanticId: A__FLR__C__COURTYARD_FINISH__03
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_7__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_7
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_6__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_6
+  - semanticId: A__FLR__C__COURTYARD_FINISH__37
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__17
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__U_G__RECESSED_THIRD_FLOOR_BUILDUP__06
+    owner: U_G
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__GLS__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL__02
+    owner: F_G
+    category: GLS
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_SILL__03
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_SILL
+  - semanticId: A__WAL__R__P2_SHELTER_SCREEN__01
+    owner: R
+    category: WAL
+    role: P2_SHELTER_SCREEN
+  - semanticId: A__GLS__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL__03
+    owner: F_G
+    category: GLS
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_9__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_9
+  - semanticId: A__FRM__F_C__CLERESTORY_LEFT_JAMB_LEFT__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_LEFT_JAMB_LEFT
+  - semanticId: A__WAL__F_G__OPEN_LINK_SIDE_WALL_1__02
+    owner: F_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_4__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_4
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_5_PANEL_1__03
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_5_PANEL_1
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_2__01
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_2
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_6__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_6
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_2__03
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_2
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_2__02
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_2
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_3__02
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_3
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_10__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_10
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_JAMB_LEFT__01
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_JAMB_LEFT
+  - semanticId: A__FLR__R__GROUND_FINISH__08
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_2__02
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__FLR__F__GROUND_FINISH__12
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_A_JAMB_RIGHT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_A_JAMB_RIGHT
+  - semanticId: A__SLB__G__OWNED_FOUNDATION__01
+    owner: G
+    category: SLB
+    role: OWNED_FOUNDATION
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_1__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_1
+  - semanticId: A__FLR__C__COURTYARD_FINISH__04
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_2__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__WAL__U_R2_U_G__OPEN_LINK_SIDE_WALL_2__01
+    owner: U_R2_U_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_4__02
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_4
+  - semanticId: A__FRM__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_1__01
+    owner: F_R
+    category: FRM
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_1
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_10__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_10
+  - semanticId: A__FIX__U_G__NEUTRAL_PLINTH_1__01
+    owner: U_G
+    category: FIX
+    role: NEUTRAL_PLINTH_1
+  - semanticId: A__FRM__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL_JAMB_LEFT__01
+    owner: F_R
+    category: FRM
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL_JAMB_LEFT
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_8__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_8
+  - semanticId: A__FRM__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_2__01
+    owner: F_R
+    category: FRM
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_2
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_2__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_2
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_15__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_3__03
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_3
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__06
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__GLS__G__EXTERIOR_CLERESTORY__03
+    owner: G
+    category: GLS
+    role: EXTERIOR_CLERESTORY
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_1__02
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_1
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_8__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_8
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_15__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__WAL__F_R__OPEN_LINK_SIDE_WALL_2__01
+    owner: F_R
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_JAMB_LEFT__01
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_JAMB_LEFT
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_A_SILL__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_A_SILL
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_25__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_25
+  - semanticId: A__FLR__F__GROUND_FINISH__15
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_2__03
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_1__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_4__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_4
+  - semanticId: A__FRM__G_C__CLERESTORY_JAMB_LEFT__02
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_JAMB_LEFT
+  - semanticId: A__GLS__F__GLAZED_PANEL_RIGHT__01
+    owner: F
+    category: GLS
+    role: GLAZED_PANEL_RIGHT
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_1_PANEL_1__02
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_1_PANEL_1
+  - semanticId: A__GLS__R__EXTERIOR_VIEW_WINDOW__01
+    owner: R
+    category: GLS
+    role: EXTERIOR_VIEW_WINDOW
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_8__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_8
+  - semanticId: A__SLB__U_G__UPPER_ROOF_VISIBLE_STRUCTURE__01
+    owner: U_G
+    category: SLB
+    role: UPPER_ROOF_VISIBLE_STRUCTURE
+  - semanticId: A__FIX__R__LOW_TABLE_LEG_A__01
+    owner: R
+    category: FIX
+    role: LOW_TABLE_LEG_A
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_SILL__01
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_SILL
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_15__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__13
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__FRM__G_C__CLERESTORY_HEAD__01
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_HEAD
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_4__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_4
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_1_PANEL_1__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_1_PANEL_1
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_A_HEAD__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_A_HEAD
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_2__04
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_2
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_13__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__09
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_10__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_10
+  - semanticId: A__WAL__R__WEST_EXTERIOR_PANEL_3__01
+    owner: R
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_3
+  - semanticId: A__FIX__R__TIMBER_BENCH_1_LEG_B__01
+    owner: R
+    category: FIX
+    role: TIMBER_BENCH_1_LEG_B
+  - semanticId: A__FLR__C__COURTYARD_FINISH__21
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_2__01
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_2
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_2__02
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_2
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_2__01
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_2
+  - semanticId: A__LGT__R__PERIMETER_RING_SEGMENT_2__01
+    owner: R
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_2
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_A_JAMB_RIGHT__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_A_JAMB_RIGHT
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_16__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__FRM__R_G__U_R1_G_PERCEPTUAL_APERTURE_HEAD__01
+    owner: R_G
+    category: FRM
+    role: U_R1_G_PERCEPTUAL_APERTURE_HEAD
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_3__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_3
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_2__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_2
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_JAMB_RIGHT__01
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_JAMB_RIGHT
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_12__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_12
+  - semanticId: A__FRM__G_C__CLERESTORY_JAMB_RIGHT__01
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_JAMB_RIGHT
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_24__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_24
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_1__01
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_1
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_1__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_1
+  - semanticId: A__FIX__U_R2__BLANK_DISPLAY_PANEL_1__01
+    owner: U_R2
+    category: FIX
+    role: BLANK_DISPLAY_PANEL_1
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_11__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_11
+  - semanticId: A__FLR__R__GROUND_FINISH__13
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__GLS__U_G__UPPER_WINDOW_3_A__01
+    owner: U_G
+    category: GLS
+    role: UPPER_WINDOW_3_A
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_A_JAMB_LEFT__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_A_JAMB_LEFT
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_1__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_1
+  - semanticId: A__FRM__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_2__01
+    owner: F_R
+    category: FRM
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_2
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_5_PANEL_1__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_5_PANEL_1
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_7__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_7
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_HEAD__02
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_HEAD
+  - semanticId: A__WAL__R__NORTH_EXTERIOR_PANEL_1__02
+    owner: R
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_1
+  - semanticId: A__FIX__R__TIMBER_BENCH_1_LEG_A__01
+    owner: R
+    category: FIX
+    role: TIMBER_BENCH_1_LEG_A
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__04
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_12__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_12
+  - semanticId: A__WAL__R_C__OPEN_LINK_SIDE_WALL_2__02
+    owner: R_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_9__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_9
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_1__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__WAL__R__SOUTH_EXTERIOR_PANEL_1__02
+    owner: R
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_1
+  - semanticId: A__WAL__F__P1_REVEAL_WALL__01
+    owner: F
+    category: WAL
+    role: P1_REVEAL_WALL
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_13__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_13
+  - semanticId: A__LGT__U_R1__PERIMETER_RING_SEGMENT_1__01
+    owner: U_R1
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_1
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_A_JAMB_LEFT__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_A_JAMB_LEFT
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_9__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_9
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_4__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_22__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_22
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_10__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_10
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_8__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_8
+  - semanticId: A__LGT__U_R2__PERIMETER_RING_SEGMENT_2__01
+    owner: U_R2
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_2
+  - semanticId: A__FLR__C__COURTYARD_FINISH__33
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__F_C__CLERESTORY_LEFT_SILL__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_LEFT_SILL
+  - semanticId: A__WAL__G_C__OPEN_LINK_SIDE_WALL_1__02
+    owner: G_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__FRM__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL_JAMB_LEFT__01
+    owner: F_R
+    category: FRM
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL_JAMB_LEFT
+  - semanticId: A__FLR__F__GROUND_FINISH__04
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FIX__R__TIMBER_BENCH_1_SEAT__01
+    owner: R
+    category: FIX
+    role: TIMBER_BENCH_1_SEAT
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_4__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_5__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_5
+  - semanticId: A__FRM__G_C__CLERESTORY_JAMB_LEFT__01
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_JAMB_LEFT
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__11
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__GLS__G__SKYLIGHT_VISIBLE_GLAZING__01
+    owner: G
+    category: GLS
+    role: SKYLIGHT_VISIBLE_GLAZING
+  - semanticId: A__FRM__F__SKYLIGHT_RAISED_CURB__02
+    owner: F
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_1__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__WAL__R_C__OPEN_LINK_SIDE_WALL_2__01
+    owner: R_C
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_2
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__08
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FLR__G__GROUND_FINISH__13
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_14__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__FRM__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL_SILL__01
+    owner: F_R
+    category: FRM
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL_SILL
+  - semanticId: A__FLR__R__GROUND_FINISH__18
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_1__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_1
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_A_JAMB_RIGHT__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_A_JAMB_RIGHT
+  - semanticId: A__FIX__G__NEUTRAL_PLINTH_2__01
+    owner: G
+    category: FIX
+    role: NEUTRAL_PLINTH_2
+  - semanticId: A__FIX__F__RECEPTION_DESK__01
+    owner: F
+    category: FIX
+    role: RECEPTION_DESK
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_3__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_3
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_JAMB_LEFT__02
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_JAMB_LEFT
+  - semanticId: A__SLB__F__VARIABLE_F_ROOF_WITH_SKYLIGHT__02
+    owner: F
+    category: SLB
+    role: VARIABLE_F_ROOF_WITH_SKYLIGHT
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_7__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_7
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_JAMB_RIGHT__02
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_JAMB_RIGHT
+  - semanticId: A__LGT__F__PERIMETER_RING_SEGMENT_2__01
+    owner: F
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_2
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_5__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_5
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_11__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_11
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_16__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__13
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_7__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_7
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_13__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_13
+  - semanticId: A__LGT__G__PERIMETER_RING_SEGMENT_5__01
+    owner: G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_5
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_4__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_4
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_11__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_11
+  - semanticId: A__FRM__F__GLAZED_PANEL_LEFT_JAMB_RIGHT__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_LEFT_JAMB_RIGHT
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_17__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_17
+  - semanticId: A__FRM__F__GLAZED_PANEL_LEFT_JAMB_LEFT__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_LEFT_JAMB_LEFT
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_1__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_1
+  - semanticId: A__FLR__U_R2_U_G__OPEN_LINK_FLOOR_PATCH__01
+    owner: U_R2_U_G
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_B_JAMB_RIGHT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_B_JAMB_RIGHT
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_11__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_11
+  - semanticId: A__FRM__R_G__U_R1_G_PERCEPTUAL_APERTURE_JAMB_LEFT__01
+    owner: R_G
+    category: FRM
+    role: U_R1_G_PERCEPTUAL_APERTURE_JAMB_LEFT
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_15__02
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_15
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_9__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_9
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_3__02
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_3
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_2__02
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_18__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_18
+  - semanticId: A__FIX__G__BLANK_DISPLAY_PANEL_2__01
+    owner: G
+    category: FIX
+    role: BLANK_DISPLAY_PANEL_2
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_7__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_7
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__03
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FRM__F__ENTRY_PORTAL_JAMB_LEFT__01
+    owner: F
+    category: FRM
+    role: ENTRY_PORTAL_JAMB_LEFT
+  - semanticId: A__FLR__F__GROUND_FINISH__13
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FLR__F__GROUND_FINISH__01
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_11__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_11
+  - semanticId: A__FRM__F__SKYLIGHT_RAISED_CURB__01
+    owner: F
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__F__SKYLIGHT_WELL_EDGE_4__01
+    owner: F
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_4
+  - semanticId: A__GLS__U_G__UPPER_WINDOW_3_B__01
+    owner: U_G
+    category: GLS
+    role: UPPER_WINDOW_3_B
+  - semanticId: A__FLR__R__GROUND_FINISH__02
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__F_C__CLERESTORY_RIGHT_JAMB_LEFT__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_RIGHT_JAMB_LEFT
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_8__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_8
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_1__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_1
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_JAMB_RIGHT__03
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_JAMB_RIGHT
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_8_PANEL_1__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_8_PANEL_1
+  - semanticId: A__FLR__U_R2__RECESSED_THIRD_FLOOR_BUILDUP__02
+    owner: U_R2
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__02
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_3__02
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_3
+  - semanticId: A__FLR__G__GROUND_FINISH__02
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G__WEST_EXTERIOR_PANEL_1__03
+    owner: G
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_1
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_13__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_13
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_8__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_8
+  - semanticId: A__FRM__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL_HEAD__01
+    owner: F_R
+    category: FRM
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL_HEAD
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_4__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_4
+  - semanticId: A__FRM__G__SKYLIGHT_RAISED_CURB__06
+    owner: G
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_6__01
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_6
+  - semanticId: A__FLR__C__COURTYARD_FINISH__12
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_3_PANEL_4__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_3_PANEL_4
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_1__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_1
+  - semanticId: A__GLS__R_C__OBSERVATION_WINDOW__01
+    owner: R_C
+    category: GLS
+    role: OBSERVATION_WINDOW
+  - semanticId: A__SLB__U_R2__UPPER_ROOF_VISIBLE_STRUCTURE__01
+    owner: U_R2
+    category: SLB
+    role: UPPER_ROOF_VISIBLE_STRUCTURE
+  - semanticId: A__FLR__C__COURTYARD_FINISH__05
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_5__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_5
+  - semanticId: A__FLR__G__GROUND_FINISH__07
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_8__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_8
+  - semanticId: A__FRM__F__ENTRY_PORTAL_JAMB_RIGHT__01
+    owner: F
+    category: FRM
+    role: ENTRY_PORTAL_JAMB_RIGHT
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__01
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FLR__R__GROUND_FINISH__09
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__U_R2_U_G__THIRD_FLOOR_CONNECTION_PANEL_3__01
+    owner: U_R2_U_G
+    category: WAL
+    role: THIRD_FLOOR_CONNECTION_PANEL_3
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_2__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_2
+  - semanticId: A__FLR__U_R2__RECESSED_THIRD_FLOOR_BUILDUP__04
+    owner: U_R2
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_JAMB_LEFT__03
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_JAMB_LEFT
+  - semanticId: A__CLG__U_R1__SECOND_FLOOR_CEILING_FINISH__01
+    owner: U_R1
+    category: CLG
+    role: SECOND_FLOOR_CEILING_FINISH
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_A_JAMB_RIGHT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_A_JAMB_RIGHT
+  - semanticId: A__FLR__R__GROUND_FINISH__20
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__F__GLAZED_PANEL_RIGHT_HEAD__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_RIGHT_HEAD
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_1__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_1
+  - semanticId: A__LGT__U_R1__PERIMETER_RING_SEGMENT_2__01
+    owner: U_R1
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_2
+  - semanticId: A__FLR__G__GROUND_FINISH__14
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FIX__U_R1__BLANK_DISPLAY_PANEL_1__01
+    owner: U_R1
+    category: FIX
+    role: BLANK_DISPLAY_PANEL_1
+  - semanticId: A__GLS__U_R1__UPPER_WINDOW_3_A__01
+    owner: U_R1
+    category: GLS
+    role: UPPER_WINDOW_3_A
+  - semanticId: A__FLR__C__COURTYARD_FINISH__41
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_13__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_2__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_2
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_6__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_6
+  - semanticId: A__WAL__R_G__OPEN_LINK_SIDE_WALL_1__01
+    owner: R_G
+    category: WAL
+    role: OPEN_LINK_SIDE_WALL_1
+  - semanticId: A__WAL__G__SKYLIGHT_WELL_EDGE_1__02
+    owner: G
+    category: WAL
+    role: SKYLIGHT_WELL_EDGE_1
+  - semanticId: A__WAL__F__SOUTH_ENTRY_PANEL_2__01
+    owner: F
+    category: WAL
+    role: SOUTH_ENTRY_PANEL_2
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_16__01
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_16
+  - semanticId: A__FLR__C__COURTYARD_FINISH__32
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_3__01
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_3
+  - semanticId: A__FLR__U_R2__RECESSED_THIRD_FLOOR_BUILDUP__03
+    owner: U_R2
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FLR__F_G__OPEN_LINK_FLOOR_PATCH__01
+    owner: F_G
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__DOR__F__ENTRY_PORTAL_RIGHT_LEAF__01
+    owner: F
+    category: DOR
+    role: ENTRY_PORTAL_RIGHT_LEAF
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_JAMB_RIGHT__02
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_JAMB_RIGHT
+  - semanticId: A__FLR__G_C__OPEN_LINK_FLOOR_PATCH__02
+    owner: G_C
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__FRM__R_C__OBSERVATION_WINDOW_JAMB_RIGHT__01
+    owner: R_C
+    category: FRM
+    role: OBSERVATION_WINDOW_JAMB_RIGHT
+  - semanticId: A__FLR__C__COURTYARD_FINISH__15
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__20
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__G__EAST_EXTERIOR_PANEL_4__01
+    owner: G
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_4
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_11__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_11
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_2_A_HEAD__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_2_A_HEAD
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_13__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_B_JAMB_RIGHT__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_B_JAMB_RIGHT
+  - semanticId: A__FLR__U_G__RECESSED_THIRD_FLOOR_BUILDUP__01
+    owner: U_G
+    category: FLR
+    role: RECESSED_THIRD_FLOOR_BUILDUP
+  - semanticId: A__FRM__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_1__01
+    owner: F_G
+    category: FRM
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL_FULL_HEIGHT_MULLION_1
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_HEAD__03
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_HEAD
+  - semanticId: A__LGT__U_R2__PERIMETER_RING_SEGMENT_4__01
+    owner: U_R2
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_4
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_9__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_9
+  - semanticId: A__GLS__G__EXTERIOR_CLERESTORY__01
+    owner: G
+    category: GLS
+    role: EXTERIOR_CLERESTORY
+  - semanticId: A__LGT__U_G__PERIMETER_RING_SEGMENT_3__01
+    owner: U_G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_3
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_6__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_6
+  - semanticId: A__FLR__R__GROUND_FINISH__11
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__FRM__F_C__CLERESTORY_LEFT_JAMB_RIGHT__01
+    owner: F_C
+    category: FRM
+    role: CLERESTORY_LEFT_JAMB_RIGHT
+  - semanticId: A__WAL__G__SOUTH_EXTERIOR_PANEL_3__01
+    owner: G
+    category: WAL
+    role: SOUTH_EXTERIOR_PANEL_3
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_5__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_5
+  - semanticId: A__FLR__G__GROUND_FINISH__08
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_18__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_18
+  - semanticId: A__GLS__F_C__CLERESTORY_LEFT__01
+    owner: F_C
+    category: GLS
+    role: CLERESTORY_LEFT
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_14__01
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__GLS__F_R__U_R2_F_FULL_HEIGHT_GLAZED_WALL__03
+    owner: F_R
+    category: GLS
+    role: U_R2_F_FULL_HEIGHT_GLAZED_WALL
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_1__02
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_1
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_3__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_3
+  - semanticId: A__FIX__R__TIMBER_BENCH_2_SEAT__01
+    owner: R
+    category: FIX
+    role: TIMBER_BENCH_2_SEAT
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_3__02
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__FLR__R__GROUND_FINISH__04
+    owner: R
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_1_PANEL_1__02
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_1_PANEL_1
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_14__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_5__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_5
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_5__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_5
+  - semanticId: A__LGT__G__PERIMETER_RING_SEGMENT_4__01
+    owner: G
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_4
+  - semanticId: A__WAL__U_R1__U_R1_PERIMETER_EDGE_5_PANEL_1__01
+    owner: U_R1
+    category: WAL
+    role: U_R1_PERIMETER_EDGE_5_PANEL_1
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_JAMB_RIGHT__01
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_JAMB_RIGHT
+  - semanticId: A__FLR__F_C__OPEN_LINK_FLOOR_PATCH__01
+    owner: F_C
+    category: FLR
+    role: OPEN_LINK_FLOOR_PATCH
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_21__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_21
+  - semanticId: A__FRM__F_G__U_G_F_FULL_HEIGHT_GLAZED_WALL_JAMB_LEFT__01
+    owner: F_G
+    category: FRM
+    role: U_G_F_FULL_HEIGHT_GLAZED_WALL_JAMB_LEFT
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_3__02
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_3
+  - semanticId: A__FRM__F__GLAZED_PANEL_LEFT_HEAD__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_LEFT_HEAD
+  - semanticId: A__GLS__G_C__CLERESTORY__01
+    owner: G_C
+    category: GLS
+    role: CLERESTORY
+  - semanticId: A__FRM__F__SKYLIGHT_RAISED_CURB__03
+    owner: F
+    category: FRM
+    role: SKYLIGHT_RAISED_CURB
+  - semanticId: A__WAL__G_C__NORTH_COURTYARD_PANEL_18__02
+    owner: G_C
+    category: WAL
+    role: NORTH_COURTYARD_PANEL_18
+  - semanticId: A__LGT__F__PERIMETER_RING_SEGMENT_4__01
+    owner: F
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_4
+  - semanticId: A__FLR__C__COURTYARD_FINISH__31
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__38
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__29
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_18__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_18
+  - semanticId: A__CLG__R__SIMPLE_CEILING_FINISH__01
+    owner: R
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__F__EAST_EXTERIOR_PANEL_8__01
+    owner: F
+    category: WAL
+    role: EAST_EXTERIOR_PANEL_8
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_20__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_20
+  - semanticId: A__CLG__F__SIMPLE_CEILING_FINISH__04
+    owner: F
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FLR__G__GROUND_FINISH__03
+    owner: G
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__SLB__F__OWNED_FOUNDATION__01
+    owner: F
+    category: SLB
+    role: OWNED_FOUNDATION
+  - semanticId: A__FRM__F__EXTERIOR_HIGH_WINDOW_HEAD__01
+    owner: F
+    category: FRM
+    role: EXTERIOR_HIGH_WINDOW_HEAD
+  - semanticId: A__FIX__G__BLANK_DISPLAY_PANEL_1__01
+    owner: G
+    category: FIX
+    role: BLANK_DISPLAY_PANEL_1
+  - semanticId: A__WAL__F_C__SHARED_INTERFACE_PANEL_9__01
+    owner: F_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_9
+  - semanticId: A__FLR__C__COURTYARD_FINISH__11
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__FRM__U_G__UPPER_WINDOW_3_A_JAMB_LEFT__01
+    owner: U_G
+    category: FRM
+    role: UPPER_WINDOW_3_A_JAMB_LEFT
+  - semanticId: A__SLB__G__ROOF_AND_U_G_VISIBLE_STRUCTURE__04
+    owner: G
+    category: SLB
+    role: ROOF_AND_U_G_VISIBLE_STRUCTURE
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_17__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_17
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_14__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__FRM__G__EXTERIOR_CLERESTORY_HEAD__01
+    owner: G
+    category: FRM
+    role: EXTERIOR_CLERESTORY_HEAD
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_2_PANEL_8__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_2_PANEL_8
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_16__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_16
+  - semanticId: A__WAL__R_G__SHARED_INTERFACE_PANEL_16__01
+    owner: R_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_16
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_13__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_13
+  - semanticId: A__WAL__F__WEST_EXTERIOR_PANEL_2__02
+    owner: F
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_2
+  - semanticId: A__WAL__R_C__SHARED_INTERFACE_PANEL_3__02
+    owner: R_C
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__GLS__U_G__UPPER_WINDOW_2_B__01
+    owner: U_G
+    category: GLS
+    role: UPPER_WINDOW_2_B
+  - semanticId: A__WAL__G__NORTH_EXTERIOR_PANEL_1__02
+    owner: G
+    category: WAL
+    role: NORTH_EXTERIOR_PANEL_1
+  - semanticId: A__FRM__U_R2__UPPER_WINDOW_3_B_JAMB_LEFT__01
+    owner: U_R2
+    category: FRM
+    role: UPPER_WINDOW_3_B_JAMB_LEFT
+  - semanticId: A__FRM__U_R1__UPPER_WINDOW_3_B_SILL__01
+    owner: U_R1
+    category: FRM
+    role: UPPER_WINDOW_3_B_SILL
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_1__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_1
+  - semanticId: A__CLG__U_R2__THIRD_FLOOR_CEILING_FINISH__01
+    owner: U_R2
+    category: CLG
+    role: THIRD_FLOOR_CEILING_FINISH
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__08
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__WAL__U_G__U_G_PERIMETER_EDGE_3_PANEL_4__01
+    owner: U_G
+    category: WAL
+    role: U_G_PERIMETER_EDGE_3_PANEL_4
+  - semanticId: A__LGT__F__PERIMETER_RING_SEGMENT_3__01
+    owner: F
+    category: LGT
+    role: PERIMETER_RING_SEGMENT_3
+  - semanticId: A__WAL__F_G__SHARED_INTERFACE_PANEL_14__01
+    owner: F_G
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_14
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__07
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FLR__C__COURTYARD_FINISH__23
+    owner: C
+    category: FLR
+    role: COURTYARD_FINISH
+  - semanticId: A__WAL__F_R__SHARED_INTERFACE_PANEL_3__01
+    owner: F_R
+    category: WAL
+    role: SHARED_INTERFACE_PANEL_3
+  - semanticId: A__CLG__G__SIMPLE_CEILING_FINISH__04
+    owner: G
+    category: CLG
+    role: SIMPLE_CEILING_FINISH
+  - semanticId: A__FRM__F_R__U_R1_F_FULL_HEIGHT_GLAZED_WALL_JAMB_RIGHT__01
+    owner: F_R
+    category: FRM
+    role: U_R1_F_FULL_HEIGHT_GLAZED_WALL_JAMB_RIGHT
+  - semanticId: A__FRM__G_C__CLERESTORY_HEAD__02
+    owner: G_C
+    category: FRM
+    role: CLERESTORY_HEAD
+  - semanticId: A__WAL__G__WEST_EXTERIOR_PANEL_1__01
+    owner: G
+    category: WAL
+    role: WEST_EXTERIOR_PANEL_1
+  - semanticId: A__FRM__F__GLAZED_PANEL_RIGHT_SILL__01
+    owner: F
+    category: FRM
+    role: GLAZED_PANEL_RIGHT_SILL
+  - semanticId: A__WAL__G_C__EAST_COURTYARD_PANEL_6__01
+    owner: G_C
+    category: WAL
+    role: EAST_COURTYARD_PANEL_6
+  - semanticId: A__FLR__F__GROUND_FINISH__06
+    owner: F
+    category: FLR
+    role: GROUND_FINISH
+  - semanticId: A__WAL__U_R2__U_R2_PERIMETER_EDGE_3_PANEL_12__01
+    owner: U_R2
+    category: WAL
+    role: U_R2_PERIMETER_EDGE_3_PANEL_12

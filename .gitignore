@@ -1,0 +1,19 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild*/
+[Ll]ogs/
+UserSettings/
+.vs/
+.idea/
+*.csproj
+*.sln
+*.apk
+*.aab
+*.keystore
+*.jks
+.env*
+/Assets/Resources/CMERHands/Left Hand Tracking.prefab
+/Assets/Resources/CMERHands/Right Hand Tracking.prefab
+/Assets/Resources/CMERHands/Models/LeftHand.fbx
+/Assets/Resources/CMERHands/Models/RightHand.fbx

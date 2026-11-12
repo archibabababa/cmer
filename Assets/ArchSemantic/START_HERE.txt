@@ -1,0 +1,14 @@
+CMER v0.9.3 — project map
+
+Open CMER > Open study (A first), then Play. The complete instructions are in the package root.
+Scripts/Study/PilotSession.cs is the session entry. StudyCore owns shared protocol rules.
+Scripts/Study/StudyView.cs owns presentation/navigation; it cannot bypass session permissions.
+Scripts/Interaction maps tracked hands to the shared state transaction.
+Scripts/Geometry reconstructs and validates live geometry.
+Materials contains shared runtime materials. Scenes contains two study entry scenes.
+Editor contains all authoring, import, export and validation tools (7 C# files).
+Editor/ReferenceModels contains the original reference models, with metadata tables in Model.asset.
+Editor/SourceData contains the preserved binary source packets for reimport.
+The 12 runtime C# files do not reference these static reference models.
+
+This source package still requires native UI, Quest, semantic calibration and full study readiness checks.
