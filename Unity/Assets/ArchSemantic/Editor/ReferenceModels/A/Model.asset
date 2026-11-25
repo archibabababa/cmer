@@ -1,0 +1,688 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204309b33d4c5356855657689a04cf9d, type: 3}
+  m_Name: Model
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::ArchSemanticPilot.ModelDefinition
+  scenario: A
+  sourceGhSha256: 644478046d68d5c70cb8ecf9e8432c29b1310a7c8f990845683dded2ed9791cf
+  modelSha256: 43c74a9d8c138922a150e072ac6ecb78208e687b6e28e70d989a696fc448d379
+  prefab: {fileID: 100001, guid: 247f883dc49b4c158484b8163ef9f509, type: 3}
+  starts:
+  - {x: 4.9, y: 1.71, z: -5.59}
+  - {x: -4.1, y: 1.71, z: 2.81}
+  - {x: 13.9, y: 1.71, z: 2.81}
+  viewDirections:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0.97384121, y: 0, z: 0.227229616}
+  - {x: -0.97384121, y: 0, z: 0.227229616}
+  anchors:
+  - id: C_INSPECT
+    position: {x: 4.9, y: 1.71, z: 4.91}
+  - id: F_INSPECT
+    position: {x: 4.9, y: 1.71, z: -5.59}
+  - id: R_INSPECT
+    position: {x: -4.1, y: 1.71, z: 2.81}
+  - id: G_INSPECT
+    position: {x: 13.9, y: 1.71, z: 2.81}
+  - id: E_INSPECT
+    position: {x: 4.9, y: 1.71, z: -10.09}
+  objectCount: 162
+  triangleCount: 1944
+  objects:
+  - semanticId: A__SLB__F__FOUNDATION__000
+    owner: F
+    category: SLB
+    role: FOUNDATION
+  - semanticId: A__SLB__R__FOUNDATION__000
+    owner: R
+    category: SLB
+    role: FOUNDATION
+  - semanticId: A__SLB__G__FOUNDATION_EAST__000
+    owner: G
+    category: SLB
+    role: FOUNDATION_EAST
+  - semanticId: A__SLB__G__FOUNDATION_NORTH__000
+    owner: G
+    category: SLB
+    role: FOUNDATION_NORTH
+  - semanticId: A__SLB__C__COURTYARD__000
+    owner: C
+    category: SLB
+    role: COURTYARD
+  - semanticId: A__WAL__F__EF_WALL__000
+    owner: F
+    category: WAL
+    role: EF_WALL
+  - semanticId: A__WAL__F__EF_WALL__001
+    owner: F
+    category: WAL
+    role: EF_WALL
+  - semanticId: A__WAL__F__EF_LINTEL__000
+    owner: F
+    category: WAL
+    role: EF_LINTEL
+  - semanticId: A__WAL__F__WALL__000
+    owner: F
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__F__WALL__001
+    owner: F
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__F__SILL__000
+    owner: F
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__F__LINTEL__000
+    owner: F
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__F__GLASS__000
+    owner: F
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__F__FC_WALL__000
+    owner: F
+    category: WAL
+    role: FC_WALL
+  - semanticId: A__WAL__F__FC_WALL__001
+    owner: F
+    category: WAL
+    role: FC_WALL
+  - semanticId: A__WAL__F__FC_LINTEL__000
+    owner: F
+    category: WAL
+    role: FC_LINTEL
+  - semanticId: A__WAL__F__WALL__002
+    owner: F
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__F__WALL__003
+    owner: F
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__F__SILL__001
+    owner: F
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__F__LINTEL__001
+    owner: F
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__F__GLASS__001
+    owner: F
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__R__WALL__000
+    owner: R
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__R__WALL__001
+    owner: R
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__R__SILL__000
+    owner: R
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__R__LINTEL__000
+    owner: R
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__R__GLASS__000
+    owner: R
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__R__RC_WALL__000
+    owner: R
+    category: WAL
+    role: RC_WALL
+  - semanticId: A__WAL__R__RC_WALL__001
+    owner: R
+    category: WAL
+    role: RC_WALL
+  - semanticId: A__WAL__R__RC_LINTEL__000
+    owner: R
+    category: WAL
+    role: RC_LINTEL
+  - semanticId: A__WAL__R__WALL__002
+    owner: R
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__R__WALL__003
+    owner: R
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__R__SILL__001
+    owner: R
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__R__LINTEL__001
+    owner: R
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__R__GLASS__001
+    owner: R
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__R__WALL__004
+    owner: R
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__R__WALL__005
+    owner: R
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__R__SILL__002
+    owner: R
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__R__LINTEL__002
+    owner: R
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__R__GLASS__002
+    owner: R
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__G__GC_WALL__000
+    owner: G
+    category: WAL
+    role: GC_WALL
+  - semanticId: A__WAL__G__GC_WALL__001
+    owner: G
+    category: WAL
+    role: GC_WALL
+  - semanticId: A__WAL__G__GC_LINTEL__000
+    owner: G
+    category: WAL
+    role: GC_LINTEL
+  - semanticId: A__WAL__G__WALL__000
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__WALL__001
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__SILL__000
+    owner: G
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__G__LINTEL__000
+    owner: G
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__G__GLASS__000
+    owner: G
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__G__WALL__002
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__WALL__003
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__SILL__001
+    owner: G
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__G__LINTEL__001
+    owner: G
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__G__GLASS__001
+    owner: G
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__G__WALL__004
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__WALL__005
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__SILL__002
+    owner: G
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__G__LINTEL__002
+    owner: G
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__G__GLASS__002
+    owner: G
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__G__WALL__006
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__WALL__007
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__SILL__003
+    owner: G
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__G__LINTEL__003
+    owner: G
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__G__GLASS__003
+    owner: G
+    category: GLS
+    role: GLASS
+  - semanticId: A__WAL__G__WALL__008
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__WALL__009
+    owner: G
+    category: WAL
+    role: WALL
+  - semanticId: A__WAL__G__SILL__004
+    owner: G
+    category: WAL
+    role: SILL
+  - semanticId: A__WAL__G__LINTEL__004
+    owner: G
+    category: WAL
+    role: LINTEL
+  - semanticId: A__GLS__G__GLASS__004
+    owner: G
+    category: GLS
+    role: GLASS
+  - semanticId: A__CLG__F__ROOF__000
+    owner: F
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__F__ROOF__001
+    owner: F
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__F__ROOF__002
+    owner: F
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__F__ROOF__003
+    owner: F
+    category: CLG
+    role: ROOF
+  - semanticId: A__GLS__F__SKYLIGHT__000
+    owner: F
+    category: GLS
+    role: SKYLIGHT
+  - semanticId: A__CLG__R__ROOF__000
+    owner: R
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__000
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__001
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__002
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__003
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__GLS__G__SKYLIGHT__000
+    owner: G
+    category: GLS
+    role: SKYLIGHT
+  - semanticId: A__CLG__G__ROOF__004
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__005
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__006
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__CLG__G__ROOF__007
+    owner: G
+    category: CLG
+    role: ROOF
+  - semanticId: A__GLS__G__SKYLIGHT__001
+    owner: G
+    category: GLS
+    role: SKYLIGHT
+  - semanticId: A__SLB__U_R1__FLOOR__000
+    owner: U_R1
+    category: SLB
+    role: FLOOR
+  - semanticId: A__CLG__U_R1__ROOF__000
+    owner: U_R1
+    category: CLG
+    role: ROOF
+  - semanticId: A__WAL__U_R1__PARAPET__000
+    owner: U_R1
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R1__COLUMN__000
+    owner: U_R1
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_R1__PARAPET__001
+    owner: U_R1
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R1__COLUMN__001
+    owner: U_R1
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_R1__PARAPET__002
+    owner: U_R1
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R1__COLUMN__002
+    owner: U_R1
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_R1__PARAPET__003
+    owner: U_R1
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R1__COLUMN__003
+    owner: U_R1
+    category: WAL
+    role: COLUMN
+  - semanticId: A__SLB__U_R2__FLOOR__000
+    owner: U_R2
+    category: SLB
+    role: FLOOR
+  - semanticId: A__CLG__U_R2__ROOF__000
+    owner: U_R2
+    category: CLG
+    role: ROOF
+  - semanticId: A__WAL__U_R2__PARAPET__000
+    owner: U_R2
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R2__COLUMN__000
+    owner: U_R2
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_R2__PARAPET__001
+    owner: U_R2
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R2__COLUMN__001
+    owner: U_R2
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_R2__PARAPET__002
+    owner: U_R2
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R2__COLUMN__002
+    owner: U_R2
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_R2__PARAPET__003
+    owner: U_R2
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_R2__COLUMN__003
+    owner: U_R2
+    category: WAL
+    role: COLUMN
+  - semanticId: A__SLB__U_G__FLOOR__000
+    owner: U_G
+    category: SLB
+    role: FLOOR
+  - semanticId: A__CLG__U_G__ROOF__000
+    owner: U_G
+    category: CLG
+    role: ROOF
+  - semanticId: A__WAL__U_G__PARAPET__000
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__000
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_G__PARAPET__001
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__001
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_G__PARAPET__002
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__002
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_G__PARAPET__003
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__003
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__SLB__U_G__FLOOR__001
+    owner: U_G
+    category: SLB
+    role: FLOOR
+  - semanticId: A__CLG__U_G__ROOF__001
+    owner: U_G
+    category: CLG
+    role: ROOF
+  - semanticId: A__WAL__U_G__PARAPET__004
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__004
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_G__PARAPET__005
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__005
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_G__PARAPET__006
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__006
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__WAL__U_G__PARAPET__007
+    owner: U_G
+    category: WAL
+    role: PARAPET
+  - semanticId: A__WAL__U_G__COLUMN__007
+    owner: U_G
+    category: WAL
+    role: COLUMN
+  - semanticId: A__FIX__R__STEP__000
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__001
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__002
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__003
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__004
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__005
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__006
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__007
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__008
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__009
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__010
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__011
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__012
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__013
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__014
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__015
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__016
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__R__STEP__017
+    owner: R
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__000
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__001
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__002
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__003
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__004
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__005
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__006
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__007
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__008
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__009
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__010
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__U_R1__STEP__011
+    owner: U_R1
+    category: FIX
+    role: STEP
+  - semanticId: A__FIX__F__DESK__000
+    owner: F
+    category: FIX
+    role: DESK
+  - semanticId: A__FIX__R__BENCH__000
+    owner: R
+    category: FIX
+    role: BENCH
+  - semanticId: A__FIX__G__PLINTH__000
+    owner: G
+    category: FIX
+    role: PLINTH
+  - semanticId: A__FIX__G__PLINTH__001
+    owner: G
+    category: FIX
+    role: PLINTH
+  - semanticId: A__WAL__F__P1_REVEAL__000
+    owner: F
+    category: WAL
+    role: P1_REVEAL
+  - semanticId: A__WAL__R__P2_SCREEN__000
+    owner: R
+    category: WAL
+    role: P2_SCREEN
+  - semanticId: A__WAL__F__P2_SCREEN_F__000
+    owner: F
+    category: WAL
+    role: P2_SCREEN_F
+  - semanticId: A__WAL__G__P2_SCREEN_G__000
+    owner: G
+    category: WAL
+    role: P2_SCREEN_G
+  - semanticId: A__WAL__G__P3_DISPLAY__000
+    owner: G
+    category: WAL
+    role: P3_DISPLAY

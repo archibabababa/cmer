@@ -1,0 +1,1042 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR;
+
+namespace ArchSemanticPilot
+{
+    public sealed class PilotSession : MonoBehaviour
+    {
+        public Transform xrOrigin;
+        public Camera headCamera;
+        public NoHandleSemanticGestureInteractor hands;
+        public LiveGeometryDriver geometry;
+        public TextMesh headsetStatus;
+        public StudySettings settings = new StudySettings();
+        public string recoveryCheckpoint = "";
+        public bool showDiagnostics = true;
+        public int startSpace;
+        public string inputStatus = "Configure participant, fixed G/M group and A/B order, then begin.";
+        bool outdatedConfiguration;
+        public StudyFlow Flow { get; private set; }
+        public StudyScale Scale { get; private set; } = StudyScale.Model;
+        public SemanticAxis SelectedAxis { get; private set; } = SemanticAxis.P1;
+        public bool IsInitialized => Flow != null && committedGeometry != null;
+        public bool CanEdit => IsInitialized && Flow.CanEdit(Scale) && !commitPending && !fatalLogFault && InputReady;
+        public bool InputReady => Flow != null && Flow.Settings.HasRequiredTracking(XrRunning, hands != null && hands.LeftTracked, hands != null && hands.RightTracked);
+        public bool UsesHandInput => Flow != null && Flow.Phase != StudyPhase.Complete && Flow.Settings.inputMode == StudyInputMode.QuestHands;
+        public bool DesktopControlsEnabled => Flow != null && Flow.Phase != StudyPhase.Complete && Flow.Settings.CanUseDesktopInput(XrRunning);
+        public bool RightHandDominant => Flow == null ? settings.rightHandDominant : Flow.Settings.rightHandDominant;
+        public bool XrRunning { get; private set; }
+        public SpatialState Effective => history.Current;
+        public string SessionDirectory => recorder?.DirectoryPath;
+        public string Zone { get; private set; } = "MODEL";
+        public bool HasPreview => previewing || commitPending;
+        public int Scenario => Flow != null && (Flow.Phase == StudyPhase.Recall || Flow.Phase == StudyPhase.Complete) && recallScenario >= 0 ? recallScenario : Flow == null ? 0 : Flow.Scenario;
+        public bool ResearcherPreview => Flow != null && Flow.Settings.researcherPreview && Flow.Phase == StudyPhase.Setup;
+        bool HeadsetPresentation => XrRunning || Application.platform == RuntimePlatform.Android;
+        StudyWorkspace workspace;
+        public bool CanToggleWorkspace => IsInitialized && Flow.CanToggleWorkspace && InputReady && !HasPreview && !fatalLogFault;
+        public bool WorkspaceRequested => workspace != null && workspace.RequestedVisible;
+        public string WorkspaceFeedback => Time.unscaledTime<workspaceFeedbackUntil?workspaceFeedback:null;
+        string workspaceFeedback;
+        float workspaceFeedbackUntil;
+        void WorkspaceNotice(string message)
+        {
+            workspaceFeedback=message;
+            workspaceFeedbackUntil=Time.unscaledTime+5f;
+            inputStatus=message;
+        }
+        public int ParameterLockMask { get; private set; }
+        public bool IsAxisLocked(SemanticAxis axis) => (int)axis>=1&&(int)axis<=3&&(ParameterLockMask&(1<<((int)axis-1)))!=0;
+        public void ToggleParameterLock(SemanticAxis axis)
+        {
+            if(!CanEdit||HasPreview||(int)axis<1||(int)axis>3)return;
+            ParameterLockMask^=1<<((int)axis-1);
+            hands.CancelGesture();
+            WorkspaceNotice(axis+(IsAxisLocked(axis)?" LOCKED | value held":" UNLOCKED | ready to edit"));
+            Log(IsAxisLocked(axis)?"parameter_locked":"parameter_unlocked",axis.ToString());
+            Checkpoint("parameter_lock_changed");
+        }
+        public void SetWorkspaceVisible(bool visible, bool recall=false)
+        {
+            if(!CanToggleWorkspace)return;
+            workspace.SetVisible(visible,recall);
+            Log(workspace.RequestedVisible?"workspace_opened":"workspace_closed");
+        }
+        int pendingWorkspaceAction = -1;    /// Pending workspace action ID (0-12, as mapped by StudyWorkspace).
+        StudyPhase pendingWorkspacePhase;
+        public bool ProcessWorkspacePointer(Vector3 origin,Vector3 direction,Vector3 wrist,bool pinch,bool pointing,bool tracked) =>
+            workspace != null && workspace.ProcessPointer(origin,direction,wrist,pinch,pointing,tracked);
+        public void RequestWorkspaceAction(int action)
+        {
+            if(action<0||action>12)return;
+            if(action>=11&&!ResearcherPreview)return;
+            if(!InputReady||fatalLogFault||!Flow.CanToggleWorkspace)
+            {WorkspaceNotice(!InputReady?"SHOW BOTH HANDS TO SELECT":"CONTROL LOCKED IN THIS PHASE");return;}
+            pendingWorkspaceAction=action;
+            pendingWorkspacePhase=Flow.Phase;
+            // A deliberate UI click ends the current transaction before selecting a new relation.
+            if(HasPreview)
+            {
+                hands.EndGesture("HAND_RELEASE");
+                if(previewing&&!commitPending)Commit(SelectedAxis);
+            }
+            else hands.CancelGesture();
+            FlushWorkspaceAction();  // Dispatch by action ID; defer or cancel when prerequisites are not met.
+        }
+        void FlushWorkspaceAction()
+        {
+            if(pendingWorkspaceAction<0)return;
+            if(!InputReady||Flow.Paused||Flow.Phase!=pendingWorkspacePhase||fatalLogFault){pendingWorkspaceAction=-1;return;}
+            if(HasPreview)return;
+            int action=pendingWorkspaceAction;pendingWorkspaceAction=-1;
+            if(action<4)NavigateSpace(action);
+            else if(action<7)SelectAxis((SemanticAxis)(action-3));
+            else if(action==7)SetWorkspaceVisible(false);
+            else if(action<11)ToggleParameterLock((SemanticAxis)(action-7));
+            else SetPreviewCondition((StudyCondition)(action-11));
+        }
+        public bool CanNavigate => IsInitialized && Flow.CanNavigateSpaces && !HasPreview && !fatalLogFault && InputReady;
+
+        bool Practice => Flow == null || (!ResearcherPreview && Flow.Phase == StudyPhase.Setup) || Flow.Phase == StudyPhase.Practice;
+
+        readonly RevisionHistory history = new RevisionHistory();
+        readonly List<XRInputSubsystem> inputs = new List<XRInputSubsystem>();
+        LiveGeometryDriver.Prepared committedGeometry;
+        StudyRecorder recorder;
+        SpatialState requested;
+        bool previewing, commitPending, fatalLogFault, wasTracked = true;
+        string operation = "", buildHash;
+        float nextSample, nextCheckpoint;
+        bool wasXr, boundaryWarning;
+        int viewWidth, viewHeight;
+        StudyPhase viewPhase;
+        int walkStop = -1, recallScenario = -1;
+        StudyNavigation navigation;
+        readonly StudyRecall recall = new StudyRecall();
+        readonly StudyDesktopView desktop = new StudyDesktopView();
+        void Start()
+        {
+            try
+            {
+                // Runtime settings path in persistent storage, outside Assets.
+                string setupPath = Path.Combine(Application.persistentDataPath, "study-settings.json");
+                if (File.Exists(setupPath))
+                {
+                    // Clear the design marker first to distinguish legacy protocol files from the current study configuration.
+                    settings.studyDesign = "";
+                    // Overwrite settings from local JSON while retaining the object reference.
+                    JsonUtility.FromJsonOverwrite(File.ReadAllText(setupPath), settings);
+                    // Fall back to default preview settings if the design version does not match.
+                    outdatedConfiguration = settings.studyDesign != StudySettings.CurrentDesign;
+                }
+
+                // Inspect available XR input subsystems to determine whether XR is running (underlying OpenXR support).
+                inputs.Clear();
+                SubsystemManager.GetSubsystems(inputs);
+                foreach (var input in inputs)
+                    if (input.running)
+                        XrRunning = true;
+
+                // Create safe researcher-preview defaults when settings are absent or obsolete.
+                if (!File.Exists(setupPath) || outdatedConfiguration)
+                {
+                    // Default to hand input on XR/Android and desktop rehearsal otherwise.
+                    settings.inputMode = XrRunning || Application.platform == RuntimePlatform.Android ? StudyInputMode.QuestHands : StudyInputMode.DesktopRehearsal;
+                    // Start in researcher preview rather than participant recording.
+                    settings.researcherPreview = true;
+                    // Write the current study design version explicitly.
+                    settings.studyDesign = StudySettings.CurrentDesign;
+                    // Default sequence 1 selects group M and building A for preview only.
+                    settings.sequence = 1;
+                }
+
+                // Create and initialize the workspace UI used by participants and researchers.
+                workspace = gameObject.AddComponent<StudyWorkspace>();
+                workspace.Initialize(this, headsetStatus);
+
+                // Initialize navigation: model/1:1 transitions, teleportation and floor following.
+                navigation = new StudyNavigation(xrOrigin, headCamera, geometry);
+                navigation.SetTrackingMode(XrRunning);
+                wasXr = XrRunning;
+
+                // Construct the flow state machine from the current settings.
+                Flow = new StudyFlow(settings);
+
+                // Read the build identity hash for logs, checkpoints and recovery checks.
+                buildHash = Resources.Load<TextAsset>("BuildIdentity")?.text.Trim() ?? "UNSTAMPED";
+
+                // Set a common target frame rate, typically 72 Hz on Quest.
+                Application.targetFrameRate = 72;
+
+                // Bind the geometry driver's callback target.
+                geometry.session = this;
+
+                // Load the initial state: participant setup normally uses practice geometry; researcher preview follows its settings.
+                LoadState(default, settings.UseTrainingPreview(XrRunning));
+
+                // Choose the initial scale by condition and device: M may start at 1:1 in a headset; otherwise use model scale.
+                SetScale(HeadsetPresentation && Flow.Condition == StudyCondition.M ? StudyScale.Body : StudyScale.Model, true);
+
+                // Log the startup summary.
+                Debug.Log("[CMER] Entry ready: scale=" + Scale + ", neutralPractice=" + geometry.Current.practice + ", participantUI=" + (workspace != null && workspace.Ready));
+            }
+            catch (Exception e)
+            {
+                // Route initialization exceptions to fault pause.
+                Fault(e.Message);
+            }
+        }
+        public void RefitDesktopView()
+        {
+            if (!IsInitialized || XrRunning)
+                return;
+            if (Scale == StudyScale.Model)
+                navigation.ShowModel(Flow.Settings.modelScale, false, Flow.Phase == StudyPhase.Setup);
+            else
+                navigation.SetViewport(false, false);
+            Physics.SyncTransforms();
+        }
+        public void SetSetupInputMode(StudyInputMode mode)
+        {
+            if (Flow == null || Flow.Phase != StudyPhase.Setup || settings.inputMode == mode)
+                return;
+            settings.inputMode = mode;
+            RefreshSetupPreview();
+        }
+        public void SetSetupSequence(int sequence)
+        {
+            if (Flow == null || Flow.Phase != StudyPhase.Setup || sequence < 0 || sequence > 3 || settings.sequence == sequence)
+                return;
+            settings.sequence = sequence;
+            RefreshSetupPreview();
+        }
+        public void SetPreviewCondition(StudyCondition condition)
+        {
+            if(!ResearcherPreview||!Enum.IsDefined(typeof(StudyCondition),condition))return;
+            SetSetupSequence((settings.sequence / 2)*2+(int)condition);
+            WorkspaceNotice(condition==StudyCondition.G?"G | MODEL ONLY / EXTERIOR VIEWS":"M | ENTER + EDIT / INTERIOR VIEWS");
+            workspace.SetVisible(true,true);
+        }
+        void RefreshSetupPreview()
+        {
+            // A/B inspection is an explicit researcher-only desktop preview.
+            // Participant preparation uses neutral rooms; researcher preview uses the full original A/B building.
+            LoadState(default, settings.UseTrainingPreview(XrRunning));
+            SetScale(HeadsetPresentation && Flow.Condition == StudyCondition.M ? StudyScale.Body : StudyScale.Model, true);
+            inputStatus = "";
+        }
+        public void BeginStudy()
+        {
+            if (Flow == null || Flow.Phase != StudyPhase.Setup || fatalLogFault || ResearcherPreview)
+                return;
+            try
+            {
+                settings.Validate();
+            }
+            catch (ArgumentException e)
+            {
+                inputStatus = e.Message;
+                return;
+            }
+
+            try
+            {
+                if (!InputReady)
+                {
+                    inputStatus = UsesHandInput ? "Connect the headset and show both hands, or select Desktop rehearsal." : "Desktop rehearsal requires XR to be stopped.";
+                    return;
+                }
+
+                settings.executionEnvironment = ExecutionEnvironment();
+                Flow = new StudyFlow(JsonUtility.FromJson<StudySettings>(JsonUtility.ToJson(settings)));
+                recorder = new StudyRecorder(Path.Combine(Application.persistentDataPath, "CMER_Sessions"), Flow.Settings, buildHash);
+                Flow.Begin();
+                wasTracked = true;
+                LoadState(default, true);
+                SetScale(HeadsetPresentation && Flow.Condition == StudyCondition.M ? StudyScale.Body : StudyScale.Model, true);
+                Log("session_begin", "G=model edit; M=model and body edit; practice entry=" + Scale);
+                Checkpoint("practice_start");
+                inputStatus = "Practice: neutral rooms; formal A/B remain hidden.";
+            }
+            catch (Exception e)
+            {
+                Fault(e.Message);
+            }
+        }
+        void LoadState(SpatialState state, bool practice)
+        {
+            navigation.ForgetBodyPosition();
+            geometry.CancelPending();
+            committedGeometry = geometry.BuildNow(Scenario, state, practice);   // Build and display geometry immediately.
+            geometry.Apply(committedGeometry, true);
+            history.Reset(state);
+            ParameterLockMask=0;
+            requested = state;
+            previewing = commitPending = false;
+        }
+        public float AxisValue(SemanticAxis axis)
+        {
+            return axis == SemanticAxis.None ? 0 : (float)requested[(int)axis - 1];
+        }
+        public void SelectAxis(SemanticAxis axis)
+        {
+            if (axis == SemanticAxis.None || HasPreview || !CanEdit)
+                return;
+            if (SelectedAxis != axis)
+            {
+                SelectedAxis = axis;
+                WorkspaceNotice(axis+(IsAxisLocked(axis)?" SELECTED | LOCKED":" SELECTED | value kept"));
+                Log("select_parameter", axis.ToString());
+            }
+        }
+        public void SetAxis(SemanticAxis axis, float value)
+        {
+            if (!CanEdit || axis == SemanticAxis.None || IsAxisLocked(axis) || !GeometryDomain.Finite(value))
+                return;
+            if (!previewing)
+            {
+                SelectedAxis = axis;
+                requested = history.Current;
+                operation = Guid.NewGuid().ToString("N");
+                previewing = true;
+                Log("gesture_begin", axis.ToString());
+                if (fatalLogFault)
+                    return;
+            }
+
+            if (axis != SelectedAxis)
+                return;
+            requested[(int)axis - 1] = Math.Max(-1, Math.Min(1, value));
+            geometry.RequestState(Scenario, history.Current, requested, (int)axis - 1, false, false, "edit", operation, Practice);
+        }
+        public void Commit(SemanticAxis axis)
+        {
+            if (!previewing || !CanEdit || axis != SelectedAxis)
+                return;
+            if (requested.CloseTo(history.Current, 1e-6))
+            {
+                CancelPreview("no_change");
+                inputStatus = "No change";
+                return;
+            }
+
+            commitPending = true;
+            geometry.RequestState(Scenario, history.Current, requested, (int)axis - 1, true, false, "edit", operation, Practice);
+            inputStatus = "Validating and saving...";
+        }
+        public void Prepared(LiveGeometryDriver.Prepared data)
+        {
+            if (fatalLogFault || !Flow.CanEdit(Scale) || !InputReady)
+            {
+                CancelPreview("permission_changed");
+                return;
+            }
+
+            if (!data.commit)
+            {
+                geometry.Apply(data, false);
+                inputStatus = data.projection == "NONE" ? "Preview " + SelectedAxis : "Geometry boundary: other parameters preserved";
+                return;
+            }
+
+            if (data.effective.CloseTo(history.Current))
+            {
+                geometry.Apply(committedGeometry, true);
+                requested = history.Current;
+                previewing = commitPending = false;
+                Log("commit_no_change", data.projection);
+                inputStatus = "No effective change";
+                FlushWorkspaceAction();
+                return;
+            }
+
+            var old = committedGeometry;
+            var past = history.Past;
+            var future = history.Future;
+            try
+            {
+                geometry.Apply(data, true);
+                history.Accept(data.effective, data.action);
+                committedGeometry = data;
+                requested = data.effective;
+                string checkpoint = Checkpoint("accepted_candidate");
+                var e = Event("commit_accepted");
+                e.accepted = true;
+                e.previous = old.effective;
+                e.previousStateId = StateId(old.effective);
+                e.requested = data.requested;
+                e.projection = data.projection;
+                e.operationId = data.operation;
+                e.detail = data.action + "|" + checkpoint;
+                if (!ResearcherPreview) recorder.Append(e, true);
+                else Debug.Log("[CMER] Preview edit: building="+(Scenario==0?"A":"B")+", axis="+SelectedAxis+", state="+StateId(data.effective));
+                previewing = commitPending = false;
+                inputStatus = (ResearcherPreview ? "Preview retained " : "Saved ") + SelectedAxis + (data.projection == "NONE" ? "" : " (geometry boundary)");
+                FlushWorkspaceAction();
+            }
+            catch (Exception e)
+            {
+                history.Restore(old.effective, past, future);
+                committedGeometry = old;
+                requested = old.effective;
+                geometry.Apply(old, true);
+                previewing = commitPending = false;
+                Fault("Commit rolled back: " + e.Message);
+            }
+        }
+        public void GeometryFailed(string message)
+        {
+            CancelPreview("geometry_rejected");
+            inputStatus = "Rejected: " + message;
+            Log("geometry_rejected", message);
+        }
+        public void CancelPreview(string reason)
+        {
+            bool had = HasPreview;
+            geometry.CancelPending();
+            previewing = commitPending = false;
+            if (committedGeometry != null)
+            {
+                requested = history.Current;
+                if (had)
+                    geometry.Apply(committedGeometry, true);
+            }
+
+            hands?.CancelGesture();
+            if (had)
+                inputStatus = "Unfinished edit cancelled; saved values retained.";
+            if (had && !fatalLogFault)
+                Log("preview_cancelled", reason);
+        }
+        void HistoryAction(string action, SpatialState target)
+        {
+            for(int i=0;i<3;i++)if(IsAxisLocked((SemanticAxis)(i+1))&&Math.Abs(target[i]-Effective[i])>1e-6)
+            {WorkspaceNotice("UNLOCK P"+(i+1)+" BEFORE "+action.ToUpperInvariant());Log("history_denied","locked_parameter="+(i+1));return;}
+            if (!CanEdit)
+                return;
+            CancelPreview(action);
+            operation = Guid.NewGuid().ToString("N");
+            commitPending = true;
+            geometry.RequestState(Scenario, history.Current, target, -1, true, true, action, operation, Practice);
+        }
+        public void Undo()
+        {
+            if (Flow.Phase == StudyPhase.Recall)
+            {
+                ReplayCue(-1);
+                return;
+            }
+
+            if (history.CanUndo)
+                HistoryAction("undo", history.UndoTarget);
+        }
+        public void Redo()
+        {
+            if (Flow.Phase == StudyPhase.Recall)
+            {
+                ReplayCue(1);
+                return;
+            }
+
+            if (history.CanRedo)
+                HistoryAction("redo", history.RedoTarget);
+        }
+        public void ResetState()
+        {
+            HistoryAction("reset", default);
+        }
+        public void ToggleScale()
+        {
+            SetScale(Scale == StudyScale.Model ? StudyScale.Body : StudyScale.Model);
+        }
+        public void SetScale(StudyScale scale, bool internalChange = false)
+        {
+            if (Flow == null || Flow.Phase == StudyPhase.Complete || geometry.Current == null)
+                return;
+            if (!internalChange && (Flow.Paused || (!ResearcherPreview && Flow.Phase != StudyPhase.Practice && Flow.Phase != StudyPhase.Revision && Flow.Phase != StudyPhase.Recall) || (scale == StudyScale.Body && !Flow.CanEnterBody)))
+            {
+                inputStatus = "Scale unavailable in this phase / condition";
+                Log("scale_denied", scale.ToString());
+                return;
+            }
+
+            if (commitPending && !internalChange)
+            {
+                inputStatus = "Wait for the current save";
+                return;
+            }
+
+            CancelPreview("scale_change");
+            if (Scale == StudyScale.Body && scale == StudyScale.Model)
+                navigation.RememberBodyPosition();
+            Scale = scale;
+            if (scale == StudyScale.Body)
+            {
+                navigation.ShowBody(XrRunning);
+                if (internalChange || !navigation.TryRestoreBodyPosition(XrRunning, inputs))
+                    GoToSpace(startSpace, true);
+            }
+            else
+                navigation.ShowModel(Flow.Settings.modelScale, XrRunning, Flow.Phase == StudyPhase.Setup);
+            Physics.SyncTransforms();
+            workspace?.Recenter();
+            Log("scale_changed", scale + "|" + (internalChange ? "system" : "participant"));
+        }
+        public void GoToSpace(int index, bool internalChange = false)
+        {
+            if (Scale != StudyScale.Body || (!internalChange && (Flow.Paused || HasPreview || !Flow.CanEnterBody)))
+                return;
+            startSpace = Mathf.Clamp(index, 0, 2);
+            navigation.GoToSpace(startSpace, XrRunning, inputs);
+            workspaceFeedback=null;workspaceFeedbackUntil=-1;
+            Log("navigation", new[] { "F", "R", "G" }[startSpace]);
+        }
+        public void SetWorkspacePointer(Vector3 origin, Vector3 direction, bool tracked) => workspace?.SetPointer(origin,direction,tracked);
+        public void NavigateSpace(int index)
+        {
+            if (!CanNavigate || index < 0 || index > 3) return;
+            string room = new[] { "F", "R", "G", "C" }[index];
+            // Destinations change the observation position, never the selected relation or its values.
+            if (!Flow.CanEnterBody)
+            {
+                if (Scale != StudyScale.Model) return;
+                navigation.FocusModelSpace(room, XrRunning);
+                Log("navigation_model_focus",room);
+            }
+            else
+            {
+                if (Scale != StudyScale.Body) SetScale(StudyScale.Body);
+                if (Scale != StudyScale.Body) return;
+                if (index < 3) GoToSpace(index);
+                else if (!navigation.GoToCourtyard(XrRunning,inputs))
+                {
+                    WorkspaceNotice("COURTYARD BLOCKED | change shape");
+                    Log("navigation_denied","C: standing clearance");return;
+                }
+                if(index==3)Log("navigation","C");
+            }
+            workspace?.Recenter();
+            string arrived=Scale==StudyScale.Body?CurrentZone():room;
+            WorkspaceNotice(arrived + (Scale==StudyScale.Body ? " | ARRIVED / 1:1" : " | MODEL FOCUS")+"\nMODE "+SelectedAxis+" | values kept");
+        }
+        public void PointAt(Vector3 origin, Vector3 direction)
+        {
+            if (workspace != null && workspace.TryActivate(origin,direction)) return;
+            if (Flow.Paused || HasPreview)
+                return;
+            if (!Physics.Raycast(origin, direction, out var hit, Scale == StudyScale.Model ? 3 : 30, 1 << 8))
+                return;
+            Vector3 local = geometry.transform.InverseTransformPoint(hit.point);
+            string room = geometry.Metrics.Zone(local.x, local.z);
+            int axis = room == "F" ? 1 : room == "R" ? 2 : room == "G" ? 3 : 0;
+            if (Scale == StudyScale.Model)
+            {
+                // Pointing selects a destination only; P1/P2/P3 are explicit workspace choices.
+                if (Flow.CanEnterBody && navigation.SelectBodyDestination(local))
+                    inputStatus = "Room selected; use the scale gesture to inspect its clear floor at 1:1.";
+            }
+            else if (Flow.CanEnterBody && (ResearcherPreview || Flow.Phase == StudyPhase.Revision || Flow.Phase == StudyPhase.Practice) && hit.normal.y > .7f && (axis > 0 || room == "C"))
+            {
+                if (navigation.TryTeleport(hit.point, XrRunning, inputs))
+                    Log("teleport", room);
+                else
+                    inputStatus = "Choose a finished floor with sufficient standing clearance.";
+            }
+        }
+        public void TogglePause()
+        {
+            if (recorder == null || fatalLogFault || Flow.Phase == StudyPhase.Complete)
+                return;
+            CancelPreview("manual_pause");
+            if (Flow.PauseReason.Contains("manual"))
+                Flow.Resume("manual");
+            else
+                Flow.Pause("manual");
+            Log("pause_changed", Flow.PauseReason);
+            Checkpoint("pause");
+        }
+        public void ContextCommand()
+        {
+            if (ResearcherPreview)
+            {
+                if (!InputReady) return;
+                CancelPreview("preview_building_change");
+                settings.sequence = (Scenario == 0 ? 2 : 0) + (int)Flow.Condition;
+                startSpace = 0;SelectedAxis = SemanticAxis.P1;
+                LoadState(default,false);
+                SetScale(HeadsetPresentation && Flow.Condition == StudyCondition.M ? StudyScale.Body : StudyScale.Model,true);
+                Debug.Log("[CMER] Full original building " + (Scenario==0?"A":"B") + " ready; researcher preview, not recording.");
+                return;
+            }
+            if (Flow.Phase == StudyPhase.Setup)
+            {
+                BeginStudy();
+                return;
+            }
+
+            if (Flow.PauseReason.Contains("recovery"))
+            {
+                Flow.Resume("recovery");
+                Log("recovery_resumed");
+                return;
+            }
+
+            if (Flow.Phase == StudyPhase.Questionnaire || Flow.Phase == StudyPhase.Recall)
+            {
+                if (!Flow.Paused)
+                {
+                    Checkpoint("phase_exit");
+                    Flow.Advance();
+                    PhaseChanged();
+                }
+
+                return;
+            }
+
+            TogglePause();
+        }
+        void PhaseChanged()
+        {
+            CancelPreview("phase_change");
+            walkStop = -1;
+            if (Flow.Phase == StudyPhase.InitialWalkthrough)
+            {
+                LoadState(default, false);
+                SetScale(StudyScale.Body, true);
+                Checkpoint("initial_locked");
+            }
+            else if (Flow.Phase == StudyPhase.Revision)
+                SetScale(StudyScale.Model, true);
+            else if (Flow.Phase == StudyPhase.FinalWalkthrough)
+            {
+                SetScale(StudyScale.Body, true);
+                Checkpoint("final_locked");
+            }
+
+            if (Flow.Phase == StudyPhase.Recall)
+                BuildRecallQueue();
+            geometry.gameObject.SetActive(Flow.Phase != StudyPhase.Washout && Flow.Phase != StudyPhase.Questionnaire && Flow.Phase != StudyPhase.Complete);
+            Log("phase_enter");
+            Checkpoint("phase_enter");
+            if (Flow.Phase == StudyPhase.Complete && !fatalLogFault)
+            {
+                recorder.Seal("complete");
+                inputStatus = "Session sealed.";
+            }
+        }
+        void BuildRecallQueue()
+        {
+            recall.Load(recorder);
+            Log("recall_cues_ready", recall.Count.ToString());
+            inputStatus = "Recall: support pinch + dominant swipe cycles before/after states";
+        }
+        public void ReplayCue(int direction)
+        {
+            if (Flow.Phase != StudyPhase.Recall || Flow.Paused || fatalLogFault || recall.Count == 0)
+                return;
+            var c = recall.Next(direction);
+            try
+            {
+                var prepared = geometry.BuildNow(c.scenario, c.state);
+                if (prepared.metrics.geometryHash != c.geometryHash)
+                    throw new InvalidDataException("Recall geometry hash mismatch");
+                CancelPreview("recall");
+                recallScenario = c.scenario;
+                committedGeometry = prepared;
+                history.Reset(c.state);
+                requested = c.state;
+                geometry.Apply(prepared, true);
+                SetScale(StudyScale.Model, true);
+                Log("recall_state", recall.CueSession + "|source_event=" + recall.CueId + "|period=" + (c.period + 1) + "|" + c.stateId);
+                inputStatus = "Recall " + (recall.Index + 1) + " / " + recall.Count + " (inspection only)";
+            }
+            catch (Exception e)
+            {
+                Fault(e.Message);
+            }
+        }
+        void Update()
+        {
+            if (!IsInitialized)
+                return;
+            inputs.Clear();
+            SubsystemManager.GetSubsystems(inputs);
+            XrRunning = false;
+            foreach (var i in inputs)
+                if (i.running)
+                    XrRunning = true;
+            if (XrRunning != wasXr)
+            {
+                navigation.SetTrackingMode(XrRunning);
+                if (Flow.Phase == StudyPhase.Setup && XrRunning)
+                {
+                    settings.inputMode = StudyInputMode.QuestHands;
+                    // Reframe even if Android had already chosen QuestHands before XR started.
+                    RefreshSetupPreview();
+                    Debug.Log("[CMER] XR ready: entered 1:1 neutral practice room.");
+                }
+                else
+                    SetScale(Scale, true);
+            }
+
+            wasXr = XrRunning;
+            bool tracked = InputReady;
+            if (tracked != wasTracked && (recorder != null || ResearcherPreview) && Flow.Phase != StudyPhase.Complete)
+            {
+                if (!tracked)
+                {
+                    CancelPreview("tracking_lost");
+                    Flow.Pause("tracking");
+                }
+                else
+                    Flow.Resume("tracking");
+                Log(tracked ? "tracking_restored" : "tracking_lost");
+            }
+
+            wasTracked = tracked;
+            FlushWorkspaceAction();
+            if (!fatalLogFault && recorder != null && Flow.Phase != StudyPhase.Complete)
+            {
+                try
+                {
+                    if (!Flow.Paused && Flow.Remaining > 0 && Flow.Remaining <= Time.unscaledDeltaTime)
+                    {
+                        CancelPreview("deadline");
+                        Checkpoint("phase_exit");
+                    }
+
+                    if (Flow.Tick(Time.unscaledDeltaTime))
+                        PhaseChanged();
+                    if (Flow.Phase == StudyPhase.Complete)
+                        return;
+                    if ((Flow.Phase == StudyPhase.InitialWalkthrough || Flow.Phase == StudyPhase.FinalWalkthrough) && !Flow.Paused)
+                    {
+                        int stop = Math.Min(5, (int)((1 - Flow.Remaining / Flow.Settings.walkthroughSeconds) * 6));
+                        if (stop != walkStop)
+                        {
+                            walkStop = stop;
+                            int room = stop % 3;
+                            navigation.WalkthroughStop(room, stop >= 3, XrRunning, inputs);
+                            Log("walkthrough_stop", stop.ToString());
+                        }
+                    }
+
+                    if (Time.unscaledTime >= nextSample)
+                    {
+                        nextSample = Time.unscaledTime + 1 / Flow.Settings.sampleHz;
+                        Sample();
+                    }
+
+                    if (Time.unscaledTime >= nextCheckpoint)
+                    {
+                        nextCheckpoint = Time.unscaledTime + 15;
+                        Checkpoint("periodic");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Fault(e.Message);
+                }
+            }
+
+            if (!XrRunning && (viewWidth != Screen.width || viewHeight != Screen.height || viewPhase != Flow.Phase))
+            {
+                RefitDesktopView();
+                viewWidth = Screen.width;
+                viewHeight = Screen.height;
+                viewPhase = Flow.Phase;
+            }
+
+            desktop.UpdateInput(this);
+            if (Scale == StudyScale.Body && !navigation.FollowFloor(HasPreview))
+            {
+                GoToSpace(startSpace, true);
+                Log("navigation_relocated", "The edited floor no longer supports the observer; returned to the room start.");
+            }
+            if (XrRunning && Scale == StudyScale.Body)
+                navigation.AlignFloor(inputs);
+
+        }
+        void Sample()
+        {
+            var p = geometry.transform.InverseTransformPoint(headCamera.transform.position);
+            Zone = CurrentZone();
+            // Location is recorded independently; it must not overwrite the chosen P1/P2/P3 relation.
+
+            bool boundary = Scale == StudyScale.Body && (Zone == "OUTSIDE" || (!HasPreview && Physics.CheckSphere(headCamera.transform.position, .2f, 1 << 8)));
+            if (boundary != boundaryWarning)
+            {
+                boundaryWarning = boundary;
+                Log(boundary ? "virtual_boundary_near" : "virtual_boundary_clear");
+            }
+
+            if (boundary)
+                inputStatus = "Near virtual boundary: return to clear floor / use point-pinch teleport";
+            else if (inputStatus.StartsWith("Near virtual boundary"))
+                inputStatus = "Ready";
+            var e = Event("observation");
+            for (int i = 0; i < geometry.liveZonePositions.Length; i++)
+                if (Vector3.Distance(p, geometry.liveZonePositions[i]) < 1.5f)
+                    e.criticalRegion = "P" + (i + 1);
+            e.detail = "frame_ms=" + (Time.unscaledDeltaTime * 1000).ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+            if (Physics.Raycast(headCamera.transform.position, headCamera.transform.forward, out var hit, 100, 1 << 8))
+            {
+                var q = geometry.transform.InverseTransformPoint(hit.point);
+                e.detail += "|head_ray=" + geometry.Metrics.Zone(q.x, q.z);
+            }
+
+            Write(e, false);
+        }
+        string CurrentZone()
+        {
+            if (Scale == StudyScale.Model)
+                return "MODEL";
+            if (geometry.Metrics == null)
+                return "UNKNOWN";
+            if (navigation.OccupiedFloor == "U_R1" || navigation.OccupiedFloor == "U_R2") return "R";
+            if (navigation.OccupiedFloor == "U_G") return "G";
+            var position = geometry.transform.InverseTransformPoint(headCamera.transform.position);
+            return geometry.Metrics.Zone(position.x, position.z);
+        }
+        string StateId(SpatialState p) => StateIdentity.Id(Practice ? 2 : Scenario, p);
+        StudyEvent Event(string kind) => new StudyEvent
+        {
+            eventType = kind,
+            phase = Flow.Phase.ToString(),
+            condition = Flow.Condition.ToString(),
+            period = Flow.Period + 1,
+            scenario = Practice ? "TRAINING" : Scenario == 0 ? "A" : "B",
+            scale = Scale.ToString(),
+            zone = CurrentZone(),
+            occupiedFloor = Scale == StudyScale.Body ? navigation.OccupiedFloor : "MODEL",
+            practice = Practice,
+            activeSeconds = Flow.ActiveElapsed,
+            remainingSeconds = Flow.Remaining,
+            activeParameter = SelectedAxis.ToString(),
+            operationId = operation,
+            stateId = StateId(history.Current),
+            previousStateId = StateId(history.Current),
+            geometryHash = committedGeometry?.metrics.geometryHash,
+            displayedGeometryHash = geometry.Current?.metrics.geometryHash,
+            displayedState = geometry.Current != null ? geometry.Current.effective : history.Current,
+            geometryPosition = geometry.transform.position,
+            geometryScale = geometry.transform.localScale,
+            geometryRotation = geometry.transform.rotation,
+            geometryRevision = geometry.displayedVersion,
+            parameterLockMask = ParameterLockMask,
+            requested = requested,
+            effective = history.Current,
+            previous = history.Current,
+            headPosition = headCamera.transform.position,
+            headRotation = headCamera.transform.rotation,
+            leftTracked = hands != null && hands.LeftTracked,
+            rightTracked = hands != null && hands.RightTracked,
+            leftPosition = hands != null ? hands.LeftPosition : Vector3.zero,
+            rightPosition = hands != null ? hands.RightPosition : Vector3.zero
+        };
+        void Write(StudyEvent e, bool durable = true)
+        {
+            if (recorder == null || fatalLogFault)
+                return;
+            try
+            {
+                recorder.Append(e, durable);
+            }
+            catch (Exception x)
+            {
+                Fault(x.Message);
+            }
+        }
+        void Log(string kind, string detail = "")
+        {
+            if (Flow == null)
+                return;
+            var e = Event(kind);
+            e.detail = detail;
+            Write(e);
+        }
+        string Checkpoint(string label)
+        {
+            if (recorder == null || fatalLogFault)
+                return "";
+            try
+            {
+                return recorder.SaveCheckpoint(new StudyCheckpoint { phase = Flow.Phase, period = Flow.Period, scenario = Practice ? 2 : Scenario, remaining = Flow.Remaining, activeElapsed = Flow.ActiveElapsed, scale = Scale, selectedAxis = SelectedAxis, parameterLockMask = ParameterLockMask, state = history.Current, undo = history.Past, redo = history.Future, stateId = StateId(history.Current), geometryHash = committedGeometry.metrics.geometryHash, label = label });
+            }
+            catch (Exception e)
+            {
+                Fault(e.Message);
+                throw;
+            }
+        }
+        public void Recover()
+        {
+            if (Flow.Phase != StudyPhase.Setup || fatalLogFault)
+                return;
+            try
+            {
+                var c = JsonUtility.FromJson<StudyCheckpoint>(File.ReadAllText(recoveryCheckpoint));
+                CheckpointValidation.Validate(c, buildHash);
+                if (c.settings.executionEnvironment != ExecutionEnvironment())
+                    throw new InvalidDataException("Recovery cannot switch between editor/simulator, desktop player and Android device environments.");
+                CheckRecoveryAcknowledgement(recoveryCheckpoint, c);
+                Flow = new StudyFlow(c.settings);
+                Flow.Restore(c.phase, c.period, c.remaining, c.activeElapsed);
+                if (c.phase == StudyPhase.Recall)
+                    recallScenario = c.scenario;
+                LoadState(c.state, c.scenario == 2);
+                if (committedGeometry.metrics.geometryHash != c.geometryHash)
+                    throw new InvalidDataException("Geometry hash mismatch.");
+                history.Restore(c.state, c.undo, c.redo);
+                ParameterLockMask=c.parameterLockMask;
+                recorder = new StudyRecorder(Path.Combine(Application.persistentDataPath, "CMER_Sessions"), Flow.Settings, buildHash);
+                RecallArchive.Attach(recorder, recoveryCheckpoint, c);
+                recorder.WriteNew("recovery_source.json", JsonUtility.ToJson(c, true));
+                SetScale(c.scale, true);
+                geometry.gameObject.SetActive(Flow.Phase != StudyPhase.Washout && Flow.Phase != StudyPhase.Questionnaire);
+                SelectedAxis = c.selectedAxis;
+                Log("recovery_loaded", c.sessionId);
+                Checkpoint("recovered");
+                if (Flow.Phase == StudyPhase.Recall) BuildRecallQueue();
+                inputStatus = "Recovered; Space / context gesture resumes.";
+            }
+            catch (Exception e)
+            {
+                Fault("Recovery failed: " + e.Message);
+            }
+        }
+        public static void CheckRecoveryAcknowledgement(string path, StudyCheckpoint c)
+        {
+            if (c.label != "accepted_candidate")
+                return;
+            string log = Path.Combine(Directory.GetParent(Path.GetDirectoryName(Path.GetFullPath(path))).FullName, "events.jsonl");
+            string name = "states/" + Path.GetFileName(path);
+            bool found = false;
+            foreach (string line in StudyRecorder.ReadEvents(log))
+            {
+                StudyEvent e;
+                try
+                {
+                    e = JsonUtility.FromJson<StudyEvent>(line);
+                }
+                catch
+                {
+                    continue;
+                }
+
+                if (e != null && e.accepted && e.eventType == "commit_accepted" && e.sessionId == c.sessionId &&
+                    e.buildHash == c.buildHash && e.configHash == c.configHash && e.eventId == c.precedingEventId + 1 &&
+                    e.stateId == c.stateId && e.geometryHash == c.geometryHash && e.detail != null && e.detail.EndsWith("|" + name, StringComparison.Ordinal))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                throw new InvalidDataException("This candidate has no durable commit acknowledgement. Select the previous periodic / phase checkpoint.");
+        }
+        static string ExecutionEnvironment() => Application.isEditor ? "EditorTest" :
+            Application.platform == RuntimePlatform.Android ? "AndroidXR" : "DesktopPlayerTest";
+        void Fault(string message)
+        {
+            fatalLogFault = true;
+            Flow?.Pause("fault");
+            geometry?.CancelPending();
+            if (committedGeometry != null)
+            {
+                geometry.Apply(committedGeometry, true);
+                requested = history.Current;
+            }
+
+            previewing = commitPending = false;
+            hands?.CancelGesture();
+            inputStatus = "PAUSED: " + message;
+            Debug.LogError(inputStatus, this);
+        }
+        void OnApplicationPause(bool pause)
+        {
+            if (ResearcherPreview) { if (pause) CancelPreview("preview_app_pause"); return; }
+            if (Flow == null || recorder == null || Flow.Phase == StudyPhase.Complete)
+                return;
+            try
+            {
+                if (pause)
+                {
+                    CancelPreview("app_pause");
+                    Flow.Pause("application");
+                    Log("application_pause");
+                    Checkpoint("application_pause");
+                }
+                else
+                {
+                    Flow.Resume("application");
+                    Flow.Pause("manual");
+                    Log("application_return_requires_resume");
+                }
+            }
+            catch (Exception e)
+            {
+                Fault(e.Message);
+            }
+        }
+        void OnApplicationFocus(bool focus)
+        {
+            if (ResearcherPreview && !focus) { CancelPreview("preview_focus_loss"); return; }
+            if (!focus && !((Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer) && XrRunning) && recorder != null && Flow.Phase != StudyPhase.Complete)
+            {
+                CancelPreview("focus_loss");
+                Flow.Pause("manual");
+                Log("focus_lost");
+            }
+        }
+        void OnDestroy()
+        {
+            desktop.Dispose();
+            try
+            {
+                if (fatalLogFault)
+                    recorder?.Seal("technical_failure");
+                else
+                    recorder?.Dispose();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Seal failed: " + e.Message);
+            }
+        }
+        public SpatialState Displayed => geometry != null && geometry.Current != null ? geometry.Current.effective : history.Current;
+        public string StatusText() => string.Format("{0} | {1} | {2} | {3:F0}s\nP1 {4:F2}   P2 {5:F2}   P3 {6:F2}\n{7}", Flow.Phase, Flow.Condition, Scale, Flow.Remaining, Displayed.p1, Displayed.p2, Displayed.p3, Flow.Paused ? "PAUSED " + Flow.PauseReason : inputStatus);
+        // Compact participant feedback; full diagnostics remain in the researcher desktop view.
+        public string HeadsetStatusText()
+        {
+            if (Flow == null) return "CMER | PREPARING SPACE";
+            string parameters=string.Format("P1 {0:F2}   P2 {1:F2}   P3 {2:F2}",Displayed.p1,Displayed.p2,Displayed.p3);
+            if (ResearcherPreview)
+                return "CMER | BUILDING " + (Scenario==0?"A":"B") + " | " + (Scale==StudyScale.Body?"1:1":"MODEL") +
+                    "\n" + parameters + "\n" + CurrentZone() + " | HANDS " + (InputReady?"READY":"SHOW BOTH") + "\n" + (outdatedConfiguration?"OLD CONFIG / PREVIEW ONLY":Flow.Condition+" PREVIEW / NOT RECORDING");
+            if (Flow.Phase == StudyPhase.Setup)
+                return "CMER | GROUP " + Flow.Condition + " | " + (Scale==StudyScale.Body?"1:1":"MODEL") + "\n" +
+                    "L " + (hands != null && hands.LeftTracked ? "OK" : "--") + " / R " + (hands != null && hands.RightTracked ? "OK" : "--") +
+                    "\nPalm UP + other index pinch\nHold 0.8 s: begin practice";
+            if(!Flow.Paused && Flow.Phase==StudyPhase.Questionnaire)
+                return "QUESTIONNAIRE\nComplete external ratings\nPalm UP + other index pinch\nHold 0.8 s to continue";
+            if(!Flow.Paused && Flow.Phase==StudyPhase.Washout)
+                return "REST | "+Flow.Remaining.ToString("F0")+" s\nNext task begins automatically";
+            if(!Flow.Paused && Flow.Phase==StudyPhase.Complete)
+                return "SESSION COMPLETE\nPlease notify the researcher\nExport data before uninstalling";
+            string hint=Flow.Paused?"PAUSED: "+Flow.PauseReason:inputStatus??"";
+            if(hint.Length>29)
+            {
+                int split=hint.LastIndexOf(' ',28);if(split<12)split=29;
+                string rest=hint.Substring(split).TrimStart();
+                hint=hint.Substring(0,split)+"\n"+(rest.Length>29?rest.Substring(0,26)+"...":rest);
+            }
+            return string.Format("{0} | {1} | {2:F0}s\n{3}\n{4}",Flow.Condition+" "+Flow.Phase,Scale,Flow.Remaining,parameters,hint);
+        }
+        void OnGUI() => desktop.Draw(this);
+    }
+}
