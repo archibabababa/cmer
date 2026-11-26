@@ -2,9 +2,7 @@
 
 Continuous Multiscale Embodied Revision by Fan Huang.
 
-- `GH/CMER.gh`: Grasshopper source. `Models/`: exports.
-- Open `Unity/` with Unity **6000.3.23f1** and let its packages install.
-- Run `python restore_hands.py` from this folder to restore the Unity XR Hands 1.8.1 visuals from the local package cache.
+- Quest 3: [CMER.apk](CMER.apk?raw=true).
+- Source: `GH/`, `Models/`, `Unity/` (Unity **6000.3.23f1**).
+- After Unity installs packages, run `python restore_hands.py` to restore the XR Hands visuals.
 - Open `Unity/Assets/ArchSemantic/Scenes/Model_A.unity`.
-
-Third-party licenses are retained with their assets.

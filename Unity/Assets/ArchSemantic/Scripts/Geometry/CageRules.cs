@@ -3,6 +3,7 @@ using System.Linq;
 using ArchSemanticGeometry;
 public static class CageRules
 {
+    // Evaluate the same room-cage rules exported by the authored GH definition.
     public static double Ease(double p) { p=Math.Max(-1,Math.Min(1,p)); return p*(3-p*p)/2; }
     // Courtyard, room footprints and storey heights.
     // Indices: courtyard W/D; F west/south; R west/south; G W/E/S/N; R/G/F/roof Z.

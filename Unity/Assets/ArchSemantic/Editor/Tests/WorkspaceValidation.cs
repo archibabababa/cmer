@@ -12,6 +12,14 @@ public static class WorkspaceValidation
 {
     static int checks;
     static void Check(bool ok,string reason) { if(!ok)throw new InvalidOperationException(reason);checks++; }
+    static SpatialState Reachable(int scenario, SpatialState requested)
+    {
+        var state = default(SpatialState);
+        for (int axis = 0; axis < 3; axis++)
+            state = GeometryDomain.SolveActive(scenario, state, axis, requested[axis], out _);
+        Check(GeometryDomain.IsLegal(scenario, state), "Navigation fixture respects authored GH limits");
+        return state;
+    }
     static void Set(object target,string field,object value) => target.GetType().GetField("<"+field+">k__BackingField",BindingFlags.Instance|BindingFlags.NonPublic).SetValue(target,value);
     static void Invoke(object target,string method) => target.GetType().GetMethod(method,BindingFlags.Instance|BindingFlags.NonPublic).Invoke(target,null);
     public static void Run()
@@ -31,7 +39,7 @@ public static class WorkspaceValidation
             s.settings.sequence=scenario*2+1;
             for(int state=0;state<2;state++)
             {
-                var data=s.geometry.BuildNow(scenario,state==0?default:new SpatialState(.6,-.4,.5));
+                var data=s.geometry.BuildNow(scenario,state==0?default:Reachable(scenario,new SpatialState(.6,-.4,.5)));
                 s.geometry.Apply(data,true);
                 s.SetScale(StudyScale.Body,true);
                 for(int room=0;room<4;room++)
@@ -112,7 +120,7 @@ public static class WorkspaceValidation
             }
         var remote=GameObject.Find("Remote model camera 0").GetComponent<Camera>();
         var beforePixels=Read(remote.targetTexture);
-        s.geometry.Apply(s.geometry.BuildNow(0,new SpatialState(.8,0,0)),true);
+        s.geometry.Apply(s.geometry.BuildNow(0,Reachable(0,new SpatialState(.8,0,0))),true);
         typeof(StudyWorkspace).GetField("nextRender",BindingFlags.Instance|BindingFlags.NonPublic).SetValue(workspace,0f);
         Invoke(workspace,"LateUpdate");
         var afterPixels=Read(remote.targetTexture);int changed=0;

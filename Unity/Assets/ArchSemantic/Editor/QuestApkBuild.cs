@@ -8,7 +8,7 @@ using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-// Reproducible sideload APK build; does not start or shorten a study session.
+// Build the Quest APK from the saved study scene.
 public static class QuestApkBuild
 {
     public static void Build()
@@ -31,7 +31,7 @@ public static class QuestApkBuild
         EditorUserBuildSettings.development = false;
         EditorUserBuildSettings.allowDebugging = false;
         AssetDatabase.SaveAssets();
-        string output = Path.GetFullPath("Builds/CMER_Quest3_v0.9.13.apk");
+        string output = Path.GetFullPath("Builds/CMER.apk");
         int previousHeap = AndroidExternalToolsSettings.maxJvmHeapSize;
         BuildReport report;
         try
